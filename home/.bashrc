@@ -1,9 +1,9 @@
 # if not running interactively, don't do anything
-[ -z "$PS1" ] && return
+[ -z "$PS1" ] && exit
 
 # start a tmux session
 if [[ -z "$TMUX" ]]
-then (tmux attach || tmux new-session)
+then tmux new-session && exit
 fi
 
 # time format for a great output of the `history` command
