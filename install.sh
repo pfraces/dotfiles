@@ -1,20 +1,34 @@
 #!/bin/bash
 
-function homeLink () {
-  ln -sf $PWD/home/$1 $HOME
+function install () {
+  mkdir -p "$HOME/$(dirname $1)" 2> /dev/null
+  cp "home/$1" "$HOME/$1"
 }
 
-homeLink .bash_profile
-homeLink .bashrc
-homeLink .bashrc.aliases
-homeLink .bashrc.completions
-homeLink .bashrc.functions
-homeLink .bin
-homeLink .gitconfig
-homeLink .gitignore
-homeLink .i3
-homeLink .i3status.conf
-homeLink .tmux.conf
-homeLink .vimrc
-homeLink .xinitrc
-homeLink .Xresources
+install .bash_profile
+install .bashrc
+install .bashrc.aliases
+install .bashrc.completions
+install .bashrc.functions
+
+install .config/ranger/rc.conf
+
+install .gitconfig
+install .gitignore
+
+install .i3/autostart
+install .i3/config
+install .i3status.conf
+
+install .tmux.conf
+install .vimrc
+
+install .xinitrc
+install .Xresources
+
+install bin/dualhead
+install bin/my-i3status
+install bin/run
+install bin/term
+install bin/triplehead
+install bin/upd

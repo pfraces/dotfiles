@@ -5,7 +5,6 @@ alias ls='ls --color=auto -l'
 alias grep='grep --color=auto'
 alias find='find . -name'
 alias ag='ag --smart-case --pager="less -R"'
-alias ranger='EDITOR=gvim ranger'
 
 # less
 
