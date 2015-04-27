@@ -11,7 +11,7 @@ function vimrecover () {
     $(which find) -name '.sw*' |
     while read file
     do
-        $(which gvim) -rf $file 2>/dev/null
+        $(which vim) -r $file 2>/dev/null
         rm $file
     done
 }
