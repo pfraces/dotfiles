@@ -1,9 +1,4 @@
-(
-  setxkbmap -layout es &&
-  xmodmap ~/.Xmodmap &
-) &
-
+setxkbmap -layout es &
 xrdb -load ~/.Xresources &
 numlockx &
-
 exec i3
