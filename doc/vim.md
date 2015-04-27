@@ -11,6 +11,22 @@
     $ cd ~/.vim/bundle/
     $ git clone https://github.com/Lokaltog/vim-distinguished.git
 
+### Install utilities
+
+**~/.vim/bundle/dependencies.json**
+
+```json
+{
+  "tomasr/molokai": "master",
+  "Shuogo/unite.vim": "master",
+  "bling/vim-airline": "master",
+  "Shuogo/vimfiler.vim": "master",
+  "Shuogo/vimproc.vim": "master"
+}
+```
+
+Then use `udm` from the same directory
+
 ## Basic configuration
 
 `~/.vimrc`
