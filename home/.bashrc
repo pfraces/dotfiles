@@ -1,14 +1,18 @@
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# Time format for a great output of the `history` command
+# start a tmux session
+if [[ -z "$TMUX" ]]
+then (tmux attach || tmux new-session)
+fi
+
+# time format for a great output of the `history` command
 export HISTTIMEFORMAT='[%F %T] '
 
-# Ignore dupliated and empty commands for cleaner history
+# ignore dupliated and empty commands for cleaner history
 export HISTCONTROL=ignoreboth # ignoredups & ignorespace
 
-# Share history between terminals
-
+# share history between terminals
 shopt -s histappend
 export HISTSIZE=100000
 export HISTFILESIZE=100000
@@ -17,14 +21,20 @@ history -a
 history -c
 history -r
 
-# Sources
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS
+shopt -s checkwinsize
 
+# the pattern "**" used in a pathname expansion context will
+# match all files and zero or more subdirectories
+shopt -s globstar
+
+# sources
 source $HOME/.bashrc.aliases
 source $HOME/.bashrc.completions
 source $HOME/.bashrc.functions
 
-# Env variables
-
+# env variables
 export EDITOR='gvim -f'
 export VISUAL=$EDITOR
 export CHROME_BIN=/usr/bin/chromium
