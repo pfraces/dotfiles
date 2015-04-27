@@ -17,3 +17,4 @@ homeLink .i3status.conf
 homeLink .tmux.conf
 homeLink .vimrc
 homeLink .xinitrc
+homeLink .Xresources
