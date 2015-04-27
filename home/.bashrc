@@ -28,4 +28,4 @@ source $HOME/.bashrc.functions
 export EDITOR='gvim -f'
 export VISUAL=$EDITOR
 export CHROME_BIN=/usr/bin/chromium
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/.bin:~/bin

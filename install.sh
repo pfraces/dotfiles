@@ -9,6 +9,7 @@ homeLink .bashrc
 homeLink .bashrc.aliases
 homeLink .bashrc.completions
 homeLink .bashrc.functions
+homeLink .bin
 homeLink .gitconfig
 homeLink .gitignore
 homeLink .i3

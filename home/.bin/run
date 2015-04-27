@@ -1,0 +1,8 @@
+#!/bin/bash
+
+dmenu_run -f -i \
+    -nb "#EDECEB" \
+    -nf "#666666" \
+    -fn "Sans-15:italic" \
+    -sb "#666666" \
+    -sf "#EDECEB" \

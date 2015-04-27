@@ -1,0 +1,6 @@
+#!/bin/bash
+
+xrandr \
+  --output HDMI-0 --auto --pos 0x0 \
+  --output DVI-1 --auto --right-of HDMI-0 \
+  --output DVI-0 --auto --right-of DVI-1
