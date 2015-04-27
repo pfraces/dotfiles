@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function homeLink () {
-  ln -sf $PWD/home/$1 $HOME/$1
+  ln -sf $PWD/home/$1 $HOME
 }
 
 homeLink .bash_profile
