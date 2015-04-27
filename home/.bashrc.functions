@@ -5,6 +5,17 @@ function mcd () {
     cd $1
 }
 
+# Vim
+
+function vimrecover () {
+    $(which find) -name '.sw*' |
+    while read file
+    do
+        $(which gvim) -rf $file 2>/dev/null
+        rm $file
+    done
+}
+
 # Git
 
 ##

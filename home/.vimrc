@@ -1,55 +1,37 @@
 set nocompatible
 set encoding=utf-8
 
-noremap <buffer> <Up> <NOP>
-noremap <buffer> <Down> <NOP>
-noremap <buffer> <Left> <NOP>
-noremap <buffer> <Right> <NOP>
-noremap <buffer> <BackSpace> <NOP>
-
-inoremap <buffer> <Up> <NOP>
-inoremap <buffer> <Down> <NOP>
-inoremap <buffer> <Left> <NOP>
-inoremap <buffer> <Right> <NOP>
-inoremap <buffer> <BackSpace> <NOP>
-
-"motions: level 2
+" search
 "
-"noremap <buffer> <h> <NOP>
-"noremap <buffer> <j> <NOP>
-"noremap <buffer> <k> <NOP>
-"noremap <buffer> <l> <NOP>
-"
-"inoremap <buffer> <h> <NOP>
-"inoremap <buffer> <j> <NOP>
-"inoremap <buffer> <k> <NOP>
-"inoremap <buffer> <l> <NOP>
-
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-
-set showmatch
-
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 nnoremap <silent> <esc> :nohlsearch<return><esc>
 
+" indentation
+"
 set autoindent
 set expandtab
 set smarttab
 set tabstop=2
 set shiftwidth=2
 
-set guioptions-=T
-set guioptions-=m
-set guioptions-=r
+" mouse support from terminal
+"
+set mouse=a
 
-set number
+" centered search
+"
+nnoremap n nzz
+nnoremap N Nzz
 
-set guicursor+=a:blinkon0
+" show closing chars
+"
+set showmatch
 
+" restore cursor position when opening a file
+"
 set viminfo='10,"100,:20,%,n~/.viminfo
 
 function! ResCur()
@@ -64,24 +46,57 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
+" plugin manager
+"
 call pathogen#infect()
 
-colorscheme distinguished
-
+" code highlight
+"
 syntax on
 filetype plugin indent on
+highlight Cursor ctermfg=grey ctermbg=lightgrey
+highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
 
-highlight Cursor guibg=orange guifg=black
-highlight OverLength guibg=red guifg=white
+" 80 characters warning
+"
 match OverLength /\%79v./
 
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+" pane layout: you can use ^w++- instead of ^w+^w+^w-
+"
+nmap          <C-W>+     <C-W>+<SID>ws
+nmap          <C-W>-     <C-W>-<SID>ws
+nmap          <C-W><     <C-W><<SID>ws
+nmap          <C-W>>     <C-W>><SID>ws
+nn <script>   <SID>ws+   <C-W>+<SID>ws
+nn <script>   <SID>ws-   <C-W>-<SID>ws
+nn <script>   <SID>ws>   <C-W>><SID>ws
+nn <script>   <SID>ws<   <C-W><<SID>ws
+nmap          <SID>ws    <Nop>
 
+" airline
+"
 set laststatus=2
-let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
-set guifont=terminus\ 12
+" unite
+"
+nnoremap <C-p> :Unite file_rec/async<cr>
 
-map <silent> <C-f> :NERDTreeToggle<CR>
+" vimfiler
+"
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
+
+call vimfiler#custom#profile('default', 'context', {
+      \ 'safe' : 0,
+      \ 'explorer' : 1,
+      \ 'split' : 1,
+      \ 'toggle' : 1
+      \ })
+
+let g:vimfiler_as_default_explorer = 1
