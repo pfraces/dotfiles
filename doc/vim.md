@@ -15,10 +15,10 @@
   "pangloss/vim-javascript": "master",
   "hallison/vim-markdown": "master",
   "tomasr/molokai": "master",
-  "Shuogo/unite.vim": "master",
+  "Shougo/unite.vim": "master",
   "bling/vim-airline": "master",
-  "Shuogo/vimfiler.vim": "master",
-  "Shuogo/vimproc.vim": "master"
+  "Shougo/vimfiler.vim": "master",
+  "Shougo/vimproc.vim": "master"
 }
 ```
 
