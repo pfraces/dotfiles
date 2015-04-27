@@ -6,17 +6,14 @@
     $ curl -LSso ~/.vim/autoload/pathogen.vim \
       https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
-### Install a theme
-
-    $ cd ~/.vim/bundle/
-    $ git clone https://github.com/Lokaltog/vim-distinguished.git
-
 ### Install utilities
 
 **~/.vim/bundle/dependencies.json**
 
 ```json
 {
+  "pangloss/vim-javascript": "master",
+  "hallison/vim-markdown": "master",
   "tomasr/molokai": "master",
   "Shuogo/unite.vim": "master",
   "bling/vim-airline": "master",
@@ -25,7 +22,7 @@
 }
 ```
 
-Then use `udm` from the same directory
+Use `udm` from the same directory to download the plugins
 
 ## Basic configuration
 
