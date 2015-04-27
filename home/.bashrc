@@ -2,9 +2,7 @@
 [ -z "$PS1" ] && exit
 
 # start a tmux session
-if [[ -z "$TMUX" ]]
-then tmux new-session && exit
-fi
+[ -z "$TMUX" ] && [ -n "$DISPLAY" ] && tmux new-session && exit
 
 # time format for a great output of the `history` command
 export HISTTIMEFORMAT='[%F %T] '
