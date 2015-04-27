@@ -1,0 +1,10 @@
+[user]
+	email = pfraces@gmail.com
+	name = Pau Fracés
+[core]
+  editor = gvim -f
+	excludesfile = ~/.gitignore
+[credential]
+	helper = cache --timeout=3600
+[merge]
+  tool = meld

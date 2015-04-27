@@ -1,0 +1,8 @@
+# vim temporary files
+.*.swp
+
+# gedit temporary files
+*~
+
+# logs
+*.log
