@@ -5,6 +5,7 @@ alias ls='ls --color=auto -l'
 alias grep='grep --color=auto'
 alias find='find . -name'
 alias ag='ag --smart-case --pager="less -R"'
+alias ranger='EDITOR=gvim ranger'
 
 # less
 
@@ -13,11 +14,6 @@ alias ag='ag --smart-case --pager="less -R"'
 # -X: don't paginate if the content fits the screen
 
 alias less='less -SFX'          
-
-# vim
-
-alias vim='gvim'
-alias ranger='EDITOR=gvim ranger'
 
 # git
 

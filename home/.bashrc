@@ -35,7 +35,7 @@ source $HOME/.bashrc.completions
 source $HOME/.bashrc.functions
 
 # env variables
-export EDITOR='gvim -f'
+export EDITOR='vim'
 export VISUAL=$EDITOR
 export CHROME_BIN=/usr/bin/chromium
 export PATH=$PATH:~/.bin:~/bin
