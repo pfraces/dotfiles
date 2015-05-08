@@ -31,9 +31,9 @@ shopt -s globstar
 source $HOME/.bashrc.aliases
 source $HOME/.bashrc.completions
 source $HOME/.bashrc.functions
+source $HOME/.bashrc.env
 
-# env variables
-export EDITOR='vim'
-export VISUAL=$EDITOR
-export CHROME_BIN=/usr/bin/chromium
-export PATH=$PATH:~/bin
+case "$(lsb_release --id --short)" in
+  "Arch") source $HOME/.bashrc.archlinux ;;
+  "Ubuntu") source $HOME/.bashrc.ubuntu ;;
+esac

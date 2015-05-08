@@ -10,6 +10,9 @@ install .bashrc
 install .bashrc.aliases
 install .bashrc.completions
 install .bashrc.functions
+install .bashrc.env
+install .bashrc.archlinux
+install .bashrc.ubuntu
 
 install .config/ranger/rc.conf
 
