@@ -1,17 +1,8 @@
-# misc
-
 alias sudo='sudo '
 alias ls='ls --color=auto -l'
 alias grep='grep --color=auto'
 alias find='find . -name'
 alias ag='ag --smart-case --pager="less -R"'
-
-# less
-
-# -S: don't clear the screen at exit
-# -F: don't wrap overflowing text
-# -X: don't paginate if the content fits the screen
-
 alias less='less -SFX'          
 
 # git

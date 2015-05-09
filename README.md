@@ -20,5 +20,3 @@ Install
 ### update fonts cache
 
     fc-cache -vf
-
-Restart X is needed for changes to take effect

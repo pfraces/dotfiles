@@ -9,9 +9,6 @@ workspace 1 output HDMI-0
 workspace 2 output DVI-1
 workspace 3 output DVI-0
 
-for_window [class="Gvim"] exec transset-df -a 0.85
-for_window [class="Oblogout"] fullscreen ; move container to output DVI-1
-
 # style
 new_window 1pixel
 font pango:Terminus 13
@@ -25,11 +22,10 @@ bar {
 set $mod Mod1
 floating_modifier $mod
 
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec term
 bindsym $mod+c kill
 bindsym $mod+p exec dmenu_run
 bindsym $mod+x exec slock
-bindsym $mod+Shift+x exec oblogout
 bindsym Print exec scrot '%Y%m%d.png' -e 'mv $f ~/Desktop'
 
 bindsym $mod+a focus parent

@@ -7,4 +7,3 @@
 
 sudo wifiup
 xcompmgr &
-urxvtd -q -f -o

@@ -29,11 +29,10 @@ install .local/share/fonts/PowerlineSymbols.otf
 install .config/fontconfig/conf.d/10-powerline-symbols.conf
 
 install .xinitrc
-install .Xresources
 
 install bin/dualhead
-install bin/my-i3status
-install bin/run
-install bin/term
 install bin/triplehead
+install bin/my-i3status
 install bin/upd
+install bin/term
+install bin/deep
