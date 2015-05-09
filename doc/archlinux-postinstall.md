@@ -15,7 +15,8 @@ Utilities
         the_silver_searcher \
         xclip \
         xkill \
-        htop
+        htop \
+        numlockx
 
 Fonts
 -----
