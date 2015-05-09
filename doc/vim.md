@@ -32,13 +32,14 @@ Plugins
     cd ~/.vim/bundle
     git clone https://github.com/Shougo/vimfiler.vim
 
-Extras
-------
-
 ### Code highlight plugins
 
-*   [javascript](https://github.com/pangloss/vim-javascript.git)
-*   [markdown](https://github.com/hallison/vim-markdown.git)
+    cd ~/.vim/bundle
+    git clone https://github.com/pangloss/vim-javascript.git
+    git clone https://github.com/hallison/vim-markdown.git
+
+Extras
+------
 
 ### Current line and pos highlight
 
