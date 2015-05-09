@@ -29,14 +29,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 [powerline font installation](https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation)
 
-Look for a valid font path with `xset q`
-
-    cd <FONT_PATH>
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-    fc-cache -vf <FONT_PATH>
-
-    cd ~/.config/fontconfig/conf.d/
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+    fc-cache -vf ~/.fonts
 
 ### launcher: unite
 
