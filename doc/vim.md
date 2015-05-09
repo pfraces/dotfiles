@@ -6,9 +6,9 @@ Plugins
 
 ### pathogen (plugin manager)
 
-    $ mkdir -p ~/.vim/autoload ~/.vim/bundle
-    $ curl -LSso ~/.vim/autoload/pathogen.vim \
-      https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+    mkdir -p ~/.vim/autoload ~/.vim/bundle
+    curl -LSso ~/.vim/autoload/pathogen.vim \
+        https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 ### statusline: airline
 
@@ -34,7 +34,6 @@ Look for a valid font path with `xset q`
     cd <FONT_PATH>
     wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
     fc-cache -vf <FONT_PATH>
-
     cd ~/.config/fontconfig/conf.d/
     wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
 
@@ -62,10 +61,8 @@ nnoremap <C-p> :Unite file_rec/async<cr>
 #### usage
 
 *   open unite: `:Unite <filter>`
-
 *   filters
     *   `file_rec`: recursively search for files under current directory
-
 *   close unite: (from NORMAL mode) `:q`
 *   filter results: enter into INSERT mode
 *   open selection in current window: `[Enter]`
@@ -132,141 +129,8 @@ N     (vimfiler_new_file)
 .     (vimfiler_toggle_visible_ignore_files)
 ```
 
-### syntax highlight
-
-    $ cd ~/.vim/bundle
-    $ git clone https://github.com/pangloss/vim-javascript
-    $ git clone https://github.com/hallison/vim-markdown
-
-### colorsheme
-
-    $ cd ~/.vim/bundle
-    $ git clone https://github.com/tomasr/molokai
-
-Basic configuration
--------------------
-
-`~/.vimrc`
-
-```vimL
-"
-" misc
-"
-set nocompatible
-set encoding=utf-8
-set ignorecase
-set smartcase
-set nowrap
-set guioptions=
-
-"
-" indentation
-"
-set autoindent
-set expandtab
-set smarttab
-set tabstop=2
-set shiftwidth=2
-
-"
-" centered search
-"
-nnoremap n nzz
-nnoremap N Nzz
-
-"
-" linenumbers
-"
-set number
-set nuw=5
-
-"
-" 80 characters width
-" 24 lines height
-"
-let &columns = &nuw + 80
-set lines=24
-
-"
-" disable cursor blink
-"
-set guicursor+=a:blinkon0
-
-"
-" restore cursor to file position
-"
-set viminfo='10,"100,:20,%,n~/.viminfo
-
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"zz
-    return 1
-  endif
-endfunction
-
-augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call ResCur()
-augroup END
-
-"
-" pathogen
-"
-call pathogen#infect()
-
-"
-" theme
-"
-colorscheme distinguished
-
-"
-" code highlight
-"
-syntax on
-filetype plugin indent on
-
-highlight Cursor guifg=#404040 guibg=#A9A9A9
-highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
-
-"
-" 80 characters warning
-"
-match OverLength /\%79v./
-```
-
-## System integration
-
-### Ubuntu
-
-**~/.bashrc**
-
-```
-function vim () {
-    (gvim -f "$@" 2>/dev/null &)
-}
-```
-
-[snippet and explanation source](http://askubuntu.com/questions/132977/how-to-get-global-application-menu-for-gvim#comment503002_132993)
-
->   The bug is related to gvim's way of going into background mode. gvim -f
-    keeps gvim in the foreground. To make the shell run gvim in the background
-    we add an &. The parenthesis in (foo &) runs the command in a subshell, so
-    that gvim does not become a background process of the current shell. Without
-    parenthesis, closing the terminal by clicking the X would also kill gvim.
-    function foo () { ... } creates a shell function. We must add /usr/bin/ to
-    gvim, otherwise we will get an infinitely recursive function. "$@" passes
-    all arguments.
-
-### Git
-
-**~/.gitconfig**
-
-```
-[core]
- 	editor = gvim -f
-```
-
-## Extras
+Extras
+------
 
 ### Code highlight plugins
 
