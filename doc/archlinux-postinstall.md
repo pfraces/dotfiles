@@ -37,7 +37,8 @@ i3
         slock \
         scrot \
         ranger \
-        htop
+        htop \
+        lsb-release
 
 Chromium
 --------

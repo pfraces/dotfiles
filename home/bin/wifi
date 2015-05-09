@@ -1,0 +1,6 @@
+#!/bin/bash
+source $HOME/.dotfilesrc
+
+sudo ip link set wlan0 up
+sudo iwconfig wlan0 essid "$WIFI_ESSID" key "s:$WIFI_KEY"
+sudo dhcpcd wlan0

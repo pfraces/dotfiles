@@ -3,13 +3,6 @@ dotfiles
 
 System configuration
 
-Prerequisites
--------------
-
-### `lsb_release`
-
-*   Archlinux: `sudo pacman -S lsb-release`
-
 Install
 -------
 
@@ -17,6 +10,15 @@ Install
     cd dotfiles
     ./install.sh
 
-### update fonts cache
+Update fonts cache
+------------------
 
     fc-cache -vf
+
+Configuration
+-------------
+
+Create `~/.dotfilesrc` and setup the following env variables:
+
+*   `WIFI_ESSID`
+*   `WIFI_KEY`

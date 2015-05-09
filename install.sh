@@ -30,8 +30,10 @@ install .config/fontconfig/conf.d/10-powerline-symbols.conf
 
 install .xinitrc
 
+install bin/wifi
+install bin/term
 install bin/dualhead
 install bin/triplehead
 install bin/upd
-install bin/term
+
 install bin/deep

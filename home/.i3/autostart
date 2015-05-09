@@ -5,5 +5,5 @@
   triplehead
 ) &
 
-sudo wifiup
+wifi &
 xcompmgr &
