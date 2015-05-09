@@ -10,10 +10,11 @@ Plugins
     curl -LSso ~/.vim/autoload/pathogen.vim \
         https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
-### airline
+### airline, tmuxline
 
     cd ~/.vim/bundle
     git clone https://github.com/bling/vim-airline
+    git clone https://github.com/edkolev/tmuxline.vim
     fc-cache -vf
 
 ### Shougo suite
