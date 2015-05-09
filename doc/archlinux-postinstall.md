@@ -15,7 +15,6 @@ Utilities
         the_silver_searcher \
         xclip \
         xkill \
-        htop \
         numlockx
 
 Fonts
@@ -36,7 +35,9 @@ i3
         i3status \
         dmenu \
         slock \
-        scrot
+        scrot \
+        ranger \
+        htop
 
 Chromium
 --------
