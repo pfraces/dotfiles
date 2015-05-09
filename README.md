@@ -1,6 +1,14 @@
-# dotfiles
+dotfiles
+========
 
 System configuration
+
+Prerequisites
+-------------
+
+### `lsb_release`
+
+*   Archlinux: `sudo pacman -S lsb-release`
 
 Install
 -------
