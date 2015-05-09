@@ -1,47 +1,43 @@
 Archlinux postinstall
 =====================
 
-Install utilities
------------------
+Utilities
+---------
 
     sudo packer -S --noconfirm \
-      tmux \
-      gvim \
-      git \
-      bash-completion \
-      downgrade \
-      the_silver_searcher \
-      xclip \
-      xkill \
-      htop
+        st-git \
+        tmux \
+        vim \
+        git \
+        bash-completion \
+        downgrade \
+        z-git \
+        the_silver_searcher \
+        xclip \
+        xkill \
+        htop
 
-Z
--
+Fonts
+-----
 
-    sudo packer -S z-git
-
-**~/.bashrc**
-
-    . /usr/lib/z.sh
+    sudo packer -S --noconfirm \
+        terminus-font \
+        ttf-inconsolata \
+        ttf-freefont \
+        ttf-arphic-uming \
+        ttf-baekmuk
 
 Chromium
 --------
 
-    sudo packer -S --noconfirm chromium
-    sudo pacman -Rscn firefox
-
-### Update flash plugin
-
-    sudo packer -S --noconfirm chromium-pepper-flash
-
-Restart chromium to enable the plugin
+    sudo packer -S --noconfirm  \
+        chromium \
+        chromium-pepper-flash
 
 ### Extensions
 
 *   Adblock Plus
-*   Postman + Postman launcher
-*   Screen Capture
-*   Save as PDF (from pdfcrowd.com)
+*   Postman
 
 ### Configuration
 
@@ -56,9 +52,11 @@ Desktop environment
 ### Custom
 
     sudo packer -S --noconfirm \
-      dmenu \
-      slock \
-      scrot
+        i3-wm \
+        i3status \
+        dmenu \
+        slock \
+        scrot
 
 ### Xfce
 
