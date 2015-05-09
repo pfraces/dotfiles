@@ -26,30 +26,9 @@ Fonts
         ttf-freefont \
         ttf-arphic-uming \
         ttf-baekmuk
-
-Chromium
---------
-
-    sudo packer -S --noconfirm  \
-        chromium \
-        chromium-pepper-flash
-
-### Extensions
-
-*   Adblock Plus
-*   Postman
-
-### Configuration
-
-*   **[on]** Disable cache while devtools is open
-*   **[on]** Log XMLHttpRequests
-*   **[off]** Enable JS source maps
-*   **[off]** Enable CSS source maps
-
-Desktop environment
--------------------
-
-### Custom
+        
+i3
+--
 
     sudo packer -S --noconfirm \
         i3-wm \
@@ -58,17 +37,14 @@ Desktop environment
         slock \
         scrot
 
-### Xfce
+Chromium
+--------
 
-General key-bindings
+    sudo packer -S --noconfirm  \
+        chromium \
+        chromium-pepper-flash
 
-    xfce4-keyboard-settings
+**Extensions**
 
-*   slock (Super+Z)
-*   xfce4-screenshooter (Print)
-*   xfce4-terminal (Super+Return)
-*   xfrun4 (Super+P)
-
-Window manager key-bindings
-
-**Configuration > Window Manager > Keyboard**
+*   Adblock Plus
+*   Postman
