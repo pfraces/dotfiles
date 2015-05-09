@@ -15,7 +15,7 @@ font pango:Terminus 13
 
 # status bar
 bar {
-  status_command my-i3status
+  status_command i3status
 }
 
 # keybindings
@@ -30,10 +30,10 @@ bindsym Print exec scrot '%Y%m%d.png' -e 'mv $f ~/Desktop'
 
 bindsym $mod+a focus parent
 
-bindsym $mod+h focus left; exec killall -USR1 i3status
-bindsym $mod+j focus down; exec killall -USR1 i3status
-bindsym $mod+k focus up; exec killall -USR1 i3status
-bindsym $mod+l focus right; exec killall -USR1 i3status
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down

@@ -32,7 +32,6 @@ install .xinitrc
 
 install bin/dualhead
 install bin/triplehead
-install bin/my-i3status
 install bin/upd
 install bin/term
 install bin/deep
