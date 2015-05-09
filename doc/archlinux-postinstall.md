@@ -13,9 +13,8 @@ Utilities
         downgrade \
         z-git \
         the_silver_searcher \
-        xclip \
-        xkill \
-        numlockx
+        numlockx \
+        curl
 
 Fonts
 -----
@@ -37,6 +36,8 @@ i3
         slock \
         scrot \
         ranger \
+        xclip \
+        xkill \
         htop \
         lsb-release
 
