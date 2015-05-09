@@ -4,9 +4,12 @@ set encoding=utf-8
 " search
 set ignorecase
 set smartcase
-set hlsearch
 set incsearch
-nnoremap <silent> <esc> :nohlsearch<return><esc>
+
+"nohlsearch <ESC> map have problems with arrow keys and mouse actions
+"
+"set hlsearch
+"nnoremap <silent> <esc> :nohlsearch<return><esc>
 
 " indentation
 set autoindent
@@ -17,7 +20,6 @@ set shiftwidth=2
 
 " mouse support from terminal
 set mouse=a
-set ttymouse=xterm2
 
 "use OS clipboard
 set clipboard=unnamed
