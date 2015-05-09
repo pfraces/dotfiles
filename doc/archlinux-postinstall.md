@@ -5,10 +5,10 @@ Utilities
 ---------
 
     sudo packer -S --noconfirm \
+        git \
         st-git \
         tmux \
         vim \
-        git \
         bash-completion \
         downgrade \
         z-git \
