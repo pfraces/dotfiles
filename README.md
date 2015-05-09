@@ -10,13 +10,8 @@ Install
     cd dotfiles
     ./install.sh
 
-Update fonts cache
-------------------
-
-    fc-cache -vf
-
-Configuration
--------------
+Setup
+-----
 
 Create `~/.dotfilesrc` and setup the following env variables:
 
