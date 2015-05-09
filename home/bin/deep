@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -Rin $1 *
+grep --color=auto -Rin $1 *
