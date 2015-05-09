@@ -25,7 +25,7 @@ install .i3status.conf
 
 install .tmux.conf
 install .vimrc
-install .fonts/PowerlineSymbols.otf
+install .local/share/fonts/PowerlineSymbols.otf
 install .config/fontconfig/conf.d/10-powerline-symbols.conf
 
 install .xinitrc

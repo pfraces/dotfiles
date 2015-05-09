@@ -17,8 +17,8 @@ Install
     cd dotfiles
     ./install.sh
 
-### vim symbol fonts
+### update fonts cache
 
-    fc-cache -vf ~/.fonts
+    fc-cache -vf
 
 Restart X is needed for changes to take effect
