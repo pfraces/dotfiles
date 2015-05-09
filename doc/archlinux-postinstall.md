@@ -1,76 +1,52 @@
 Archlinux postinstall
 =====================
 
-Install utilities
------------------
+Utilities
+---------
 
     sudo packer -S --noconfirm \
-      tmux \
-      gvim \
-      git \
-      bash-completion \
-      downgrade \
-      the_silver_searcher \
-      xclip \
-      xkill \
-      htop
+        git \
+        st-git \
+        tmux \
+        vim \
+        bash-completion \
+        downgrade \
+        z-git \
+        the_silver_searcher \
+        xclip \
+        xkill \
+        numlockx
 
-Z
--
+Fonts
+-----
 
-    sudo packer -S z-git
+    sudo packer -S --noconfirm \
+        terminus-font \
+        ttf-inconsolata \
+        ttf-freefont \
+        ttf-arphic-uming \
+        ttf-baekmuk
+        
+i3
+--
 
-**~/.bashrc**
-
-    . /usr/lib/z.sh
+    sudo packer -S --noconfirm \
+        i3-wm \
+        i3status \
+        dmenu \
+        slock \
+        scrot \
+        ranger \
+        htop
 
 Chromium
 --------
 
-    sudo packer -S --noconfirm chromium
-    sudo pacman -Rscn firefox
+    sudo packer -S --noconfirm  \
+        chromium \
+        chromium-pepper-flash
 
-### Update flash plugin
-
-    sudo packer -S --noconfirm chromium-pepper-flash
-
-Restart chromium to enable the plugin
-
-### Extensions
+**Extensions**
 
 *   Adblock Plus
-*   Postman + Postman launcher
-*   Screen Capture
-*   Save as PDF (from pdfcrowd.com)
-
-### Configuration
-
-*   **[on]** Disable cache while devtools is open
-*   **[on]** Log XMLHttpRequests
-*   **[off]** Enable JS source maps
-*   **[off]** Enable CSS source maps
-
-Desktop environment
--------------------
-
-### Custom
-
-    sudo packer -S --noconfirm \
-      dmenu \
-      slock \
-      scrot
-
-### Xfce
-
-General key-bindings
-
-    xfce4-keyboard-settings
-
-*   slock (Super+Z)
-*   xfce4-screenshooter (Print)
-*   xfce4-terminal (Super+Return)
-*   xfrun4 (Super+P)
-
-Window manager key-bindings
-
-**Configuration > Window Manager > Keyboard**
+*   Postman
