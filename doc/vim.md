@@ -17,17 +17,26 @@ Plugins
     git clone https://github.com/edkolev/tmuxline.vim
     fc-cache -vf
 
-### Shougo suite
-
-    cd ~/.vim/bundle
-    git clone https://github.com/Shougo/vimproc.vim
-    git clone https://github.com/Shougo/unite.vim
-    git clone https://github.com/Shougo/vimfiler.vim
-    cd vimproc.vim
-    make
-
-### Code highlight plugins
+### Syntax highlight
 
     cd ~/.vim/bundle
     git clone https://github.com/pangloss/vim-javascript.git
     git clone https://github.com/hallison/vim-markdown.git
+
+### fugitive
+
+    cd ~/.vim/bundle
+    git clone https://github.com/tpope/vim-fugitive.git
+
+### unite
+
+    cd ~/.vim/bundle
+    git clone https://github.com/Shougo/vimproc.vim
+    git clone https://github.com/Shougo/unite.vim
+    cd vimproc.vim
+    make
+
+### vimfiler
+
+    cd ~/.vim/bundle
+    git clone https://github.com/Shougo/vimfiler.vim
