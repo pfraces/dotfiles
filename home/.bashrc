@@ -1,5 +1,5 @@
 # if not running interactively, don't do anything
-[ -z "$PS1" ] && exit
+[ -z "$PS1" ] && return
 
 # start a tmux session
 [ -z "$TMUX" ] && [ -n "$DISPLAY" ] && tmux new-session && exit
