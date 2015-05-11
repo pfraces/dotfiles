@@ -38,32 +38,22 @@ Install utilities (using synaptic)
         vim \
         git \
         silversearcher-ag \
-        chromium-browser \
-        pepperflashplugin-nonfree \
         meld \
         xclip \
         gpick
 
-### vim
+### Chromium
 
-**~/.bashrc**
+    sudo apt-get install \
+        chromium-browser \
+        pepperflashplugin-nonfree
 
-```
-function vim () {
-    (gvim -f "$@" 2>/dev/null &)
-}
-```
+**Extensions**
 
-[snippet and explanation source](http://askubuntu.com/questions/132977/how-to-get-global-application-menu-for-gvim#comment503002_132993)
-
->   The bug is related to gvim's way of going into background mode. gvim -f
-    keeps gvim in the foreground. To make the shell run gvim in the background
-    we add an &. The parenthesis in (foo &) runs the command in a subshell, so
-    that gvim does not become a background process of the current shell. Without
-    parenthesis, closing the terminal by clicking the X would also kill gvim.
-    function foo () { ... } creates a shell function. We must add /usr/bin/ to
-    gvim, otherwise we will get an infinitely recursive function. "$@" passes
-    all arguments.
+*   Adblock Plus
+*   Postman
+*   Web Developer Form Filler
+*   Webpage Screenshot
 
 Install utilities (from PPAs)
 -----------------------------
