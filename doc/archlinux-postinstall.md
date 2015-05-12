@@ -52,3 +52,5 @@ Chromium
 
 *   Adblock Plus
 *   Postman
+*   Web Developer Form Filler
+*   Webpage Screenshot
