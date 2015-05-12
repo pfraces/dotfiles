@@ -22,9 +22,11 @@ set clipboard=unnamed
 " show closing chars
 set showmatch
 
-" centered search
-nnoremap n nzz
-nnoremap N Nzz
+" do not wrap long lines
+set nowrap
+
+" center cursor vertically
+set scrolloff=999
 
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
@@ -44,14 +46,15 @@ augroup END
 " plugin manager
 call pathogen#infect()
 
-" code highlight
+" syntax highlight
 syntax on
-filetype plugin indent on
-highlight Cursor ctermfg=grey ctermbg=lightgrey
-highlight OverLength ctermbg=red ctermfg=white
 
-" 80 characters warning
-match OverLength /\%79v./
+" file type detection
+filetype plugin indent on
+
+" 80 characters overlength warning
+highlight OverLength ctermbg=red ctermfg=white
+match OverLength /\%81v./
 
 " -------
 " Plugins
