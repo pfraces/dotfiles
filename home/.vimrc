@@ -6,11 +6,6 @@ set ignorecase
 set smartcase
 set incsearch
 
-"nohlsearch <ESC> map have problems with arrow keys and mouse actions
-"
-"set hlsearch
-"nnoremap <silent> <esc> :nohlsearch<return><esc>
-
 " indentation
 set autoindent
 set expandtab
@@ -21,15 +16,15 @@ set shiftwidth=2
 " mouse support from terminal
 set mouse=a
 
-"use OS clipboard
+" use OS clipboard
 set clipboard=unnamed
+
+" show closing chars
+set showmatch
 
 " centered search
 nnoremap n nzz
 nnoremap N Nzz
-
-" show closing chars
-set showmatch
 
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
@@ -53,21 +48,14 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 highlight Cursor ctermfg=grey ctermbg=lightgrey
-highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
+highlight OverLength ctermbg=red ctermfg=white
 
 " 80 characters warning
 match OverLength /\%79v./
 
-" pane layout: you can use ^w++- instead of ^w+^w+^w-
-nmap          <C-W>+     <C-W>+<SID>ws
-nmap          <C-W>-     <C-W>-<SID>ws
-nmap          <C-W><     <C-W><<SID>ws
-nmap          <C-W>>     <C-W>><SID>ws
-nn <script>   <SID>ws+   <C-W>+<SID>ws
-nn <script>   <SID>ws-   <C-W>-<SID>ws
-nn <script>   <SID>ws>   <C-W>><SID>ws
-nn <script>   <SID>ws<   <C-W><<SID>ws
-nmap          <SID>ws    <Nop>
+" -------
+" Plugins
+" -------
 
 " airline
 set laststatus=2
