@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return
 
 # start a tmux session
-[ -z "$TMUX" ] && [ -n "$DISPLAY" ] && tmux new-session && exit
+[ -z "$TMUX" ] && [ -n "$DISPLAY" ] && tmux -2 new-session && exit
 
 # time format for a great output of the `history` command
 export HISTTIMEFORMAT='[%F %T] '
@@ -29,7 +29,6 @@ shopt -s globstar
 
 # sources
 source $HOME/.bashrc.aliases
-source $HOME/.bashrc.completions
 source $HOME/.bashrc.functions
 source $HOME/.bashrc.env
 

@@ -104,8 +104,7 @@ set sidescrolloff=999
 set wildmenu
 
 " 80 characters overlength warning
-
-highlight ColorColumn ctermbg=grey
+highlight ColorColumn ctermbg=234
 set textwidth=80
 let &colorcolumn = '+' . join(range(1, 256), ',+')
 
