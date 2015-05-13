@@ -81,6 +81,9 @@ set shiftwidth=2
 " syntax highlight
 syntax on
 
+" current line
+set cursorline
+
 " file type detection
 filetype plugin indent on
 
@@ -100,13 +103,8 @@ set nowrap
 set scrolloff=999
 set sidescrolloff=999
 
-" tab completion for command mode
+" command line tab completion
 set wildmenu
-
-" 80 characters overlength warning
-highlight ColorColumn ctermbg=234
-set textwidth=80
-let &colorcolumn = '+' . join(range(1, 256), ',+')
 
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
@@ -122,6 +120,27 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+" -----
+" Theme
+" -----
+
+" 80 characters overlength
+set textwidth=80
+let &colorcolumn = '+' . join(range(1, 256), ',+')
+highlight ColorColumn ctermbg=234
+highlight NonText ctermbg=234
+
+" current line
+highlight CursorLine cterm=NONE ctermbg=234
+
+" vertical window separator
+highlight VertSplit ctermbg=234 ctermfg=black
+:set fillchars+=vert:│
+
+" command line tab completion
+highligh StatusLine cterm=NONE ctermbg=lightblue ctermfg=black
+highligh WildMenu ctermbg=black ctermfg=lightblue
 
 " ------------
 " Key Bindings
