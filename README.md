@@ -10,6 +10,10 @@ Install
     cd dotfiles
     ./install.sh
 
+### Update fonts cache
+
+    fc-cache -vf
+
 Setup
 -----
 
