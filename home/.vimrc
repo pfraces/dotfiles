@@ -104,8 +104,10 @@ set sidescrolloff=999
 set wildmenu
 
 " 80 characters overlength warning
-highlight OverLength ctermbg=red ctermfg=white
-match OverLength /\%81v./
+
+highlight ColorColumn ctermbg=grey
+set textwidth=80
+let &colorcolumn = '+' . join(range(1, 256), ',+')
 
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
@@ -126,5 +128,7 @@ augroup END
 " Key Bindings
 " ------------
 
+let mapleader=","
+
 " unite
-nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <Leader>p :Unite file_rec/async<cr>
