@@ -96,8 +96,9 @@ set showmatch
 " do not wrap long lines
 set nowrap
 
-" center cursor vertically
+" center cursor
 set scrolloff=999
+set sidescrolloff=999
 
 " tab completion for command mode
 set wildmenu
