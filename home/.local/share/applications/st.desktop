@@ -1,0 +1,20 @@
+# fixed dead keys (`XMODIFIERS=`)
+# https://bugs.launchpad.net/ubuntu/+source/ibus/+bug/335732
+
+[Desktop Entry]
+Name=st
+GenericName=Terminal
+Comment=simple terminal
+Exec=env XMODIFIERS= /usr/bin/stterm -f "DejaVu Sans Mono:pixelsize=15"
+Terminal=false
+Type=Application
+Icon=utilities-terminal
+Categories=System;TerminalEmulator;Utility;
+OnlyShowIn=Unity;
+Actions=New
+StartupWMClass=stterm-256color
+
+[Desktop Action New]
+Name=New Terminal
+Exec=env XMODIFIERS= /usr/bin/stterm -f "DejaVu Sans Mono:pixelsize=15"
+OnlyShowIn=Unity

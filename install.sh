@@ -9,11 +9,8 @@ function install_all () {
   install .bash_profile
   install .bashrc
   install .bashrc.aliases
-  install .bashrc.completions
   install .bashrc.functions
   install .bashrc.env
-  install .bashrc.archlinux
-  install .bashrc.ubuntu
 
   install .gitconfig
   install .gitignore
@@ -35,9 +32,14 @@ function install_all () {
   install bin/term
   install bin/dualhead
   install bin/triplehead
+
+  # archlinux
+  install .bashrc.archlinux
   install bin/upd
 
-  install bin/deep
+  # ubuntu
+  install .bashrc.ubuntu
+  install .local/share/applications/st.desktop
 }
 
 if test $# -eq 0
