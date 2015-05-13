@@ -45,5 +45,5 @@ then install_all && exit
 fi
 
 while test $# -gt 0
-do install $1 && shift
+do install "$1" && shift
 done

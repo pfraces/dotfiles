@@ -10,14 +10,6 @@ source ~/build/z/z.sh
 # https://bugs.launchpad.net/ubuntu/+source/ibus/+bug/335732
 alias st='XMODIFIERS= stterm -f "DejaVu Sans Mono:pixelsize=15"'
 
-function open () {
-    until test "$#" = "0"
-    do
-        xdg-open $1
-        shift
-    done
-}
-
 function xapp () {
     winid=$(xprop | awk '/_NET_WM_PID\(CARDINAL\)/{ print $NF }')
     ps -e | grep $winid | awk '{ print $NF }'
