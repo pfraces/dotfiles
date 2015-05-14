@@ -40,6 +40,13 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+" unite
+call unite#custom#profile('default', 'context', {
+  \   'start_insert': 1,
+  \   'winheight': 10,
+  \   'direction': 'botright'
+  \ })
+
 " vimfiler
 let g:vimfiler_tree_leaf_icon = ' '
 let g:vimfiler_tree_opened_icon = '▾'
@@ -48,16 +55,17 @@ let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 
 call vimfiler#custom#profile('default', 'context', {
-      \ 'safe' : 0,
-      \ 'explorer' : 1,
-      \ 'split' : 1,
-      \ 'toggle' : 1
-      \ })
+  \   'safe' : 0,
+  \   'explorer' : 1,
+  \   'split' : 1,
+  \   'toggle' : 1
+  \ })
 
 let g:vimfiler_as_default_explorer = 1
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " --------
 " Settings
@@ -148,5 +156,30 @@ highligh WildMenu ctermbg=black ctermfg=lightblue
 
 let mapleader=","
 
-" unite
-nnoremap <Leader>p :Unite file_rec/async<cr>
+" load previous buffer
+nnoremap <Leader>t :b#<cr>
+
+" indent selection and keep selected
+vnoremap > >gv
+vnoremap <lt> <lt>gv
+
+" indent selection with tab (and keep selected)
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <lt>gv
+
+" open unite
+nnoremap <Leader>p :Unite -start-insert file_rec/async<cr>
+
+" custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " navigate results with <Tab>
+  imap <buffer> <Tab>   <Plug>(unite_select_next_line)
+  imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)
+
+  " close buffer with <C-c>
+  imap <buffer> <C-c> <Plug>(unite_exit)
+endfunction
+
+" neocomplete tab completion
+inoremap <expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
