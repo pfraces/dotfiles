@@ -35,6 +35,7 @@ function install_all () {
 
   # archlinux
   install .bashrc.archlinux
+  install .tmux.conf.archlinux
   install bin/upd
 
   # ubuntu
