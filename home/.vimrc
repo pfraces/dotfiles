@@ -169,7 +169,7 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <lt>gv
 
 " open unite
-nnoremap <Leader>p :Unite -start-insert file_rec/async<CR>
+nnoremap <Leader>p :Unite file_rec/async<CR>
 
 " custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
