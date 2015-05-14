@@ -157,7 +157,8 @@ highligh WildMenu ctermbg=black ctermfg=lightblue
 let mapleader=","
 
 " load previous buffer
-nnoremap <Leader>t :b#<cr>
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
 
 " indent selection and keep selected
 vnoremap > >gv
@@ -168,7 +169,7 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <lt>gv
 
 " open unite
-nnoremap <Leader>p :Unite -start-insert file_rec/async<cr>
+nnoremap <Leader>p :Unite -start-insert file_rec/async<CR>
 
 " custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
