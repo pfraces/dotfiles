@@ -7,6 +7,10 @@ call plug#begin('~/.vim/plugged')
 " close buffer without closing window
 Plug 'moll/vim-bbye'
 
+" syntax highlight
+Plug 'pangloss/vim-javascript'
+Plug 'hallison/vim-markdown'
+
 " status line
 Plug 'bling/vim-airline'
 Plug 'edkolev/tmuxline.vim'
@@ -20,10 +24,6 @@ Plug 'Shougo/vimfiler.vim'
 
 " autocompletion
 Plug 'Shougo/neocomplete.vim'
-
-" syntax highlight
-Plug 'pangloss/vim-javascript'
-Plug 'hallison/vim-markdown'
 
 " git
 Plug 'tpope/vim-fugitive'
