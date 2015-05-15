@@ -4,11 +4,14 @@
 
 call plug#begin('~/.vim/plugged')
 
+" close buffer without closing window
+Plug 'moll/vim-bbye'
+
 " status line
 Plug 'bling/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 
-" unite
+" file finder
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim'
 
@@ -30,9 +33,9 @@ Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
-" ---------------------
-" Plugins configuration
-" ---------------------
+" ------------------
+" Settings - Plugins
+" ------------------
 
 " airline
 set laststatus=2
@@ -43,9 +46,11 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " unite
 call unite#custom#profile('default', 'context', {
   \   'start_insert': 1,
-  \   'winheight': 10,
-  \   'direction': 'botright'
+  \   'winheight': 10
   \ })
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
 " vimfiler
 let g:vimfiler_tree_leaf_icon = ' '
@@ -177,8 +182,11 @@ nnoremap <S-Tab> <lt><lt>
 nnoremap <Leader><Tab> :bnext<CR>
 nnoremap <Leader><S-Tab> :bprevious<CR>
 
-" open unite
-nnoremap <Leader>o :Unite file_rec/async<CR>
+" close current buffer
+nnoremap <Leader>q :Bdelete<CR>
+
+" file fuzzy find
+nnoremap <Leader>f :Unite file_rec/async<CR>
 
 " custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
@@ -191,8 +199,8 @@ function! s:unite_settings()
   imap <buffer> <C-c> <Plug>(unite_exit)
 endfunction
 
-" toggle vimfiler
+" toggle file explorer
 nnoremap <silent> <Leader>e :VimFilerExplorer -force-quit -project<CR>
 
-" neocomplete tab completion
+" tab completion
 inoremap <expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
