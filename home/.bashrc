@@ -27,6 +27,9 @@ shopt -s checkwinsize
 # match all files and zero or more subdirectories
 shopt -s globstar
 
+# disable flow control (Ctrl-s / Ctrl-q)
+stty -ixon
+
 # sources
 source $HOME/.bashrc.aliases
 source $HOME/.bashrc.functions

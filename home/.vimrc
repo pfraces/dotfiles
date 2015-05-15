@@ -27,6 +27,7 @@ Plug 'Shougo/neocomplete.vim'
 
 " git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
@@ -146,61 +147,85 @@ set showcmd
 " Theme
 " -----
 
+" default pallete
+color pablo
+
+" custom pallete
+let s:grey = 236
+let s:darkgrey = 235
+
 " 80 characters overlength
-let overlength = 80
-let &colorcolumn = join(range(overlength + 1, overlength + 256), ',')
-highlight ColorColumn ctermbg=234
-highlight NonText ctermbg=234
+let s:overlength = 80
+let &colorcolumn = join(range(s:overlength + 1, s:overlength + 256), ',')
+execute 'highlight ColorColumn ctermbg=' . s:grey
+execute 'highlight NonText ctermbg=' . s:grey
 
 " current line
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=234
+execute 'highlight CursorLine cterm=NONE ctermbg=' . s:darkgrey
 
 " vertical window separator
-highlight VertSplit ctermbg=234 ctermfg=black
+execute 'highlight VertSplit ctermfg=black ctermbg=' . s:grey
 set fillchars+=vert:│
+
+" number / gutter
+execute 'highlight LineNr ctermbg=' . s:grey
 
 " command line tab completion
 highligh StatusLine cterm=NONE ctermbg=lightblue ctermfg=black
 highligh WildMenu ctermbg=black ctermfg=lightblue
 
-" ------------
-" Key Bindings
-" ------------
+" ----------------------
+" Key Bindings - General
+" ----------------------
 
-let mapleader=","
-
-" indent selection with tab and keep selected
+" tab indentation
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <lt>gv
-
-" indent current line with tab
 nnoremap <Tab> >>
 nnoremap <S-Tab> <lt><lt>
 
-" navigate between buffers
-nnoremap <Leader><Tab> :bnext<CR>
-nnoremap <Leader><S-Tab> :bprevious<CR>
+" tab completion
+inoremap <expr> <Tab>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" close current buffer
-nnoremap <Leader>q :Bdelete<CR>
-
-" file fuzzy find
-nnoremap <Leader>f :Unite file_rec/async<CR>
-
-" custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
+" tab completion (unite)
 function! s:unite_settings()
-  " navigate results with <Tab>
   imap <buffer> <Tab>   <Plug>(unite_select_next_line)
   imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)
-
-  " close buffer with <C-c>
-  imap <buffer> <C-c> <Plug>(unite_exit)
 endfunction
+
+autocmd FileType unite call s:unite_settings()
+
+" ----------------------
+" Key Bindings - Control
+" ----------------------
+
+" save current buffer
+nnoremap <silent> <C-s> :w<CR>
+inoremap <silent> <C-s> <Esc>:w<CR>i
+
+" close current window
+nnoremap <silent> <C-x> :close<CR>
+inoremap <silent> <C-x> <Esc>:close<CR>
+
+" ---------------------
+" Key Bindings - Leader
+" ---------------------
+
+let mapleader=" "
+
+" navigate between buffers
+nnoremap <silent><Leader><Tab> :bnext<CR>
+nnoremap <silent><Leader><S-Tab> :bprevious<CR>
+
+" close current buffer
+nnoremap <silent><Leader>q :Bdelete<CR>
+
+" file fuzzy find
+nnoremap <silent><Leader>f :Unite file_rec/async<CR>
 
 " toggle file explorer
 nnoremap <silent> <Leader>e :VimFilerExplorer -force-quit -project<CR>
 
-" tab completion
-inoremap <expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" git
+nnoremap <silent> <Leader>gs :Gstatus<CR>
