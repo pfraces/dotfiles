@@ -54,65 +54,24 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 
-call vimfiler#custom#profile('default', 'context', {
-  \   'safe' : 0,
-  \   'explorer' : 1,
-  \   'split' : 1,
-  \   'toggle' : 1
-  \ })
-
 let g:vimfiler_as_default_explorer = 1
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
-" --------
-" Settings
-" --------
+" ------------------
+" Settings - General
+" ------------------
 
+" be iMproved
 set nocompatible
+
+" default encoding
 set encoding=utf-8
 
-" search
-set ignorecase
-set smartcase
-set incsearch
-
-" indentation
-set autoindent
-set expandtab
-set smarttab
-set tabstop=2
-set shiftwidth=2
-
-" syntax highlight
-syntax on
-
-" current line
-set cursorline
-
-" file type detection
-filetype plugin indent on
-
-" mouse support from terminal
+" enable mouse support
 set mouse=a
-
-" use OS clipboard
-set clipboard=unnamed
-
-" show closing chars
-set showmatch
-
-" do not wrap long lines
-set nowrap
-
-" center cursor
-set scrolloff=999
-set sidescrolloff=999
-
-" command line tab completion
-set wildmenu
 
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
@@ -129,22 +88,69 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
+" -----------------
+" Settings - Buffer
+" -----------------
+
+" search
+set ignorecase
+set smartcase
+set incsearch
+
+" indentation
+set autoindent
+set expandtab
+set smarttab
+set tabstop=2
+set shiftwidth=2
+
+" use OS clipboard
+set clipboard=unnamed
+
+" do not wrap long lines
+set nowrap
+
+" center cursor
+set scrolloff=999
+set sidescrolloff=999
+set virtualedit=all
+
+" syntax highlight
+syntax on
+
+" show closing chars
+set showmatch
+
+" file type detection
+filetype plugin indent on
+
+" -----------------------
+" Settings - Command line
+" -----------------------
+
+" tab completion
+set wildmenu
+
+" show command as its being typed
+set showcmd
+
 " -----
 " Theme
 " -----
 
 " 80 characters overlength
-set textwidth=80
-let &colorcolumn = '+' . join(range(1, 256), ',+')
+let overlength = 80
+let &colorcolumn = join(range(overlength + 1, overlength + 256), ',')
 highlight ColorColumn ctermbg=234
 highlight NonText ctermbg=234
 
 " current line
+set cursorline
 highlight CursorLine cterm=NONE ctermbg=234
 
 " vertical window separator
 highlight VertSplit ctermbg=234 ctermfg=black
-:set fillchars+=vert:│
+set fillchars+=vert:│
 
 " command line tab completion
 highligh StatusLine cterm=NONE ctermbg=lightblue ctermfg=black
@@ -156,17 +162,17 @@ highligh WildMenu ctermbg=black ctermfg=lightblue
 
 let mapleader=","
 
-" load previous buffer
-:nnoremap <Tab> :bnext<CR>
-:nnoremap <S-Tab> :bprevious<CR>
-
-" indent selection and keep selected
-vnoremap > >gv
-vnoremap <lt> <lt>gv
-
-" indent selection with tab (and keep selected)
+" indent selection with tab and keep selected
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <lt>gv
+
+" indent current line with tab
+nnoremap <Tab> >>
+nnoremap <S-Tab> <lt><lt>
+
+" navigate between buffers
+nnoremap <Leader><Tab> :bnext<CR>
+nnoremap <Leader><S-Tab> :bprevious<CR>
 
 " open unite
 nnoremap <Leader>p :Unite file_rec/async<CR>
@@ -181,6 +187,9 @@ function! s:unite_settings()
   " close buffer with <C-c>
   imap <buffer> <C-c> <Plug>(unite_exit)
 endfunction
+
+" toggle vimfiler
+nnoremap <silent> <Leader>e :VimFilerExplorer -force-quit -project<CR>
 
 " neocomplete tab completion
 inoremap <expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
