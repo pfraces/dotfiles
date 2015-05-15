@@ -88,6 +88,9 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
+" do not restore cursor position for git commit messages
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 " -----------------
 " Settings - Buffer
 " -----------------
@@ -175,7 +178,7 @@ nnoremap <Leader><Tab> :bnext<CR>
 nnoremap <Leader><S-Tab> :bprevious<CR>
 
 " open unite
-nnoremap <Leader>p :Unite file_rec/async<CR>
+nnoremap <Leader>o :Unite file_rec/async<CR>
 
 " custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
