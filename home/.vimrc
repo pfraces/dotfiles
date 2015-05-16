@@ -219,7 +219,7 @@ nnoremap <silent><Leader><Tab> :bnext<CR>
 nnoremap <silent><Leader><S-Tab> :bprevious<CR>
 
 " close current buffer
-nnoremap <silent><Leader>q :Bdelete<CR>
+nnoremap <silent><Leader>x :Bdelete<CR>
 
 " file fuzzy find
 nnoremap <silent><Leader>f :Unite file_rec/async<CR>
