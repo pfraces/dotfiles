@@ -66,6 +66,9 @@ let g:vimfiler_as_default_explorer = 1
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
+" gitgutter
+let g:gitgutter_sign_column_always = 1
+
 " ------------------
 " Settings - General
 " ------------------
