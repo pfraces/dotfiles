@@ -212,7 +212,7 @@ inoremap <silent> <C-x> <Esc>:close<CR>
 " Key Bindings - Leader
 " ---------------------
 
-let mapleader=" "
+let mapleader=","
 
 " navigate between buffers
 nnoremap <silent><Leader><Tab> :bnext<CR>
