@@ -1,9 +1,8 @@
 alias sudo='sudo '
-alias ls='ls --color=auto -l'
+alias ls='ls -l --color=auto'
 alias grep='grep --color=auto'
-alias find='find . -name'
 alias ag='ag --smart-case --pager="less -R"'
-alias less='less -SFX'          
+alias less='less -SFRX'
 
 # git
 
@@ -32,4 +31,4 @@ alias gr='git remote -v'
 alias gs='git status'
 alias gt='git tag'
 alias gtl='git tag -l | sort -V | tail -1'
-alias gu='git pull origin master && git pull --tags'
+alias gu='git pull origin master && git pull origin --tags'

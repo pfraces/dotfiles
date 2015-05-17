@@ -1,5 +1,4 @@
-# start panes and windowns in the same directory as the current pane
-# requires tmux >= 1.9
-bind '"' split-window -c "#{pane_current_path}"
-bind % split-window -h -c "#{pane_current_path}"
-bind c new-window -c "#{pane_current_path}"
+# [tmux >= 1.9] start panes and windowns from directory of current pane
+unbind Space;   bind Space   split-window -h -c "#{pane_current_path}"
+unbind C-Space; bind C-Space split-window -v -c "#{pane_current_path}"
+unbind c;       bind c       new-window -c "#{pane_current_path}"

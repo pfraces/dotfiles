@@ -62,6 +62,8 @@ function save () {
     MSG_ERR_MERGE_CONFLICT='merge conflict'
 
     currentBranch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    root=$(git rev-parse --show-toplevel)
+
     newTag=$1
 
     if test -z "$currentBranch"
@@ -90,7 +92,7 @@ function save () {
 
     if test -n "$(git status --short)"
     then
-        git add --all
+        git add "$root" --all
         git commit
 
         if test "$?" != "0"
@@ -101,6 +103,7 @@ function save () {
     fi
 
     git pull origin master || return $(err MERGE_CONFLICT)
+    git pull origin --tags
 
     test -n "$newTag" && git tag $newTag
     git push origin $currentBranch
