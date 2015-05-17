@@ -6,7 +6,7 @@ Utilities
 
     sudo packer -S --noconfirm \
         git \
-        st-git \
+        st \
         tmux \
         vim \
         bash-completion \
@@ -38,8 +38,7 @@ i3
         ranger \
         xclip \
         xkill \
-        htop \
-        lsb-release
+        htop
 
 Chromium
 --------
@@ -48,9 +47,12 @@ Chromium
         chromium \
         chromium-pepper-flash
 
-**Extensions**
+### Extensions
 
 *   Adblock Plus
+
+### Web development extensions
+
 *   Postman
 *   Web Developer Form Filler
 *   Webpage Screenshot

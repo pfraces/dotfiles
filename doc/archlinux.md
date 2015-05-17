@@ -1,3 +1,20 @@
+`pacman` / `packer`
+===================
+
+list installed files by package
+-------------------------------
+
+    pacman -Ql <package>
+
+get package owner of a file
+---------------------------
+
+    pacman -Qo <filepath>
+
+Commonly used with executables
+
+    pacman -Qo $(which <executable>)
+
 Community
 =========
 

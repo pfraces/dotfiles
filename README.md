@@ -3,6 +3,12 @@ dotfiles
 
 System configuration
 
+Prerequisites
+-------------
+
+*   `git`
+*   `lsb_release`
+
 Install
 -------
 

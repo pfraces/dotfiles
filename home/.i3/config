@@ -8,6 +8,12 @@ focus_follows_mouse no
 workspace 1 output HDMI-0
 workspace 2 output DVI-1
 workspace 3 output DVI-0
+workspace 4 output HDMI-0
+workspace 5 output DVI-1
+workspace 6 output DVI-0
+workspace 7 output HDMI-0
+workspace 8 output DVI-1
+workspace 9 output DVI-0
 
 # style
 new_window 1pixel
@@ -22,7 +28,7 @@ bar {
 set $mod Mod1
 floating_modifier $mod
 
-bindsym $mod+Return exec term
+bindsym $mod+Return exec st -f inconsolata:pixelsize=18
 bindsym $mod+c kill
 bindsym $mod+p exec dmenu_run
 bindsym $mod+x exec slock
