@@ -103,7 +103,7 @@ function save () {
     fi
 
     git pull origin master || return $(err MERGE_CONFLICT)
-    git pull origin --tags
+    git fetch origin --tags
 
     test -n "$newTag" && git tag $newTag
     git push origin $currentBranch
