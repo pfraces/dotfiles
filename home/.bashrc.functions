@@ -1,8 +1,14 @@
 # Misc functions
 
 function mcd () {
-    mkdir -p $1
-    cd $1
+    mkdir -p "$1"
+    cd "$1"
+}
+
+function open () {
+    while test $# -gt 0
+    do xdg-open "$1" && shift
+    done
 }
 
 # Vim
@@ -11,8 +17,8 @@ function vimrecover () {
     $(which find) -name '.sw*' |
     while read file
     do
-        $(which vim) -r $file 2>/dev/null
-        rm $file
+        $(which vim) -r "$file" 2>/dev/null
+        rm "$file"
     done
 }
 
@@ -86,7 +92,7 @@ function save () {
     then
         git add --all
         git commit
-        
+
         if test "$?" != "0"
         then
             git reset
@@ -95,7 +101,7 @@ function save () {
     fi
 
     git pull origin master || return $(err MERGE_CONFLICT)
-    
+
     test -n "$newTag" && git tag $newTag
     git push origin $currentBranch
     git push origin --tags
@@ -115,7 +121,7 @@ function ghc () {
 function ghco () {
     repo=$1
     account=$2
-    
+
     if test -z $account
     then account=pfraces
     fi
