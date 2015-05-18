@@ -65,7 +65,9 @@ let g:vimfiler_marked_file_icon = '*'
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#auto_completion_start_length = 3
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_cursor_hold_i = 1
 
 " gitgutter
 let g:gitgutter_sign_column_always = 1
@@ -190,7 +192,7 @@ nnoremap <Tab> >>
 nnoremap <S-Tab> <lt><lt>
 
 " tab completion
-inoremap <expr> <Tab>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " tab completion (unite)
 function! s:unite_settings()
