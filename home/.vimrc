@@ -107,28 +107,14 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Settings - Buffer
 " -----------------
 
-" search
-set ignorecase
-set smartcase
-set incsearch
-
-" indentation
-set autoindent
-set expandtab
-set smarttab
-set tabstop=2
-set shiftwidth=2
+" show line numbers
+set number
 
 " use OS clipboard
 set clipboard=unnamed
 
 " do not wrap long lines
 set nowrap
-
-" center cursor
-set scrolloff=999
-set sidescrolloff=999
-set virtualedit=all
 
 " syntax highlight
 syntax on
@@ -138,6 +124,23 @@ set showmatch
 
 " file type detection
 filetype plugin indent on
+
+" indentation
+set autoindent
+set expandtab
+set smarttab
+set tabstop=2
+set shiftwidth=2
+
+" search
+set ignorecase
+set smartcase
+set incsearch
+
+" center cursor
+set scrolloff=999
+set sidescrolloff=999
+set virtualedit=all
 
 " -----------------------
 " Settings - Command line
@@ -157,25 +160,26 @@ set showcmd
 color pablo
 
 " custom pallete
-let s:grey = 236
-let s:darkgrey = 235
+let s:lightgrey = 236
+let s:grey = 234
+let s:darkgrey = 232
 
 " 80 characters overlength
 let s:overlength = 80
 let &colorcolumn = join(range(s:overlength + 1, s:overlength + 256), ',')
-execute 'highlight ColorColumn ctermbg=' . s:grey
-execute 'highlight NonText ctermbg=' . s:grey
+execute 'highlight ColorColumn ctermbg=' . s:darkgrey
+execute 'highlight NonText ctermbg=' . s:darkgrey
 
 " current line
 set cursorline
-execute 'highlight CursorLine cterm=NONE ctermbg=' . s:darkgrey
+execute 'highlight CursorLine cterm=NONE ctermbg=' . s:grey
 
 " vertical window separator
-execute 'highlight VertSplit ctermfg=black ctermbg=' . s:grey
+execute 'highlight VertSplit ctermfg=black ctermbg=' . s:darkgrey
 set fillchars+=vert:│
 
 " number / gutter
-execute 'highlight LineNr ctermbg=' . s:grey
+execute 'highlight LineNr ctermbg=' . s:lightgrey
 
 " command line tab completion
 highligh StatusLine cterm=NONE ctermbg=lightblue ctermfg=black
