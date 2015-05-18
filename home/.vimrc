@@ -85,6 +85,9 @@ set encoding=utf-8
 " enable mouse support
 set mouse=a
 
+" hide unsaved buffers
+set hidden
+
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
 
