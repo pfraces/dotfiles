@@ -45,6 +45,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " unite
+if executable('ag')
+  let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --hidden -g ""'
+endif
+
 call unite#custom#profile('default', 'context', {
   \   'start_insert': 1,
   \   'winheight': 10
