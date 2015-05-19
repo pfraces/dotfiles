@@ -162,6 +162,9 @@ highligh WildMenu ctermbg=black ctermfg=lightblue
 " Key Bindings - General
 " ----------------------
 
+" disable ex mode key binding
+nnoremap Q <nop>
+
 " tab indentation
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <lt>gv
