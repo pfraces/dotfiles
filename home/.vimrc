@@ -29,6 +29,9 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" ag
+Plug 'rking/ag.vim'
+
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
