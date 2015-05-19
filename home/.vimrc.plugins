@@ -1,0 +1,34 @@
+call plug#begin('~/.vim/plugged')
+
+" close buffer without closing window
+Plug 'moll/vim-bbye'
+
+" syntax highlight
+Plug 'pangloss/vim-javascript'
+Plug 'hallison/vim-markdown'
+
+" status line
+Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+
+" file finder
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/unite.vim'
+
+" file browser
+Plug 'Shougo/vimfiler.vim'
+
+" autocompletion
+Plug 'Shougo/neocomplete.vim'
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" ag
+Plug 'rking/ag.vim'
+
+" editorconfig
+Plug 'editorconfig/editorconfig-vim'
+
+call plug#end()

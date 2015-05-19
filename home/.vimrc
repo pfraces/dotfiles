@@ -1,45 +1,8 @@
-" --------------------
-" Plugins installation
-" --------------------
+" -------
+" Plugins
+" -------
 
-call plug#begin('~/.vim/plugged')
-
-" close buffer without closing window
-Plug 'moll/vim-bbye'
-
-" syntax highlight
-Plug 'pangloss/vim-javascript'
-Plug 'hallison/vim-markdown'
-
-" status line
-Plug 'bling/vim-airline'
-Plug 'edkolev/tmuxline.vim'
-
-" file finder
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/unite.vim'
-
-" file browser
-Plug 'Shougo/vimfiler.vim'
-
-" autocompletion
-Plug 'Shougo/neocomplete.vim'
-
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" ag
-Plug 'rking/ag.vim'
-
-" editorconfig
-Plug 'editorconfig/editorconfig-vim'
-
-call plug#end()
-
-" ------------------
-" Settings - Plugins
-" ------------------
+source ~/.vimrc.plugins
 
 " airline
 set laststatus=2
@@ -79,9 +42,9 @@ let g:neocomplete#enable_cursor_hold_i = 1
 " gitgutter
 let g:gitgutter_sign_column_always = 1
 
-" ------------------
-" Settings - General
-" ------------------
+" -------
+" General
+" -------
 
 " be iMproved
 set nocompatible
@@ -113,9 +76,9 @@ augroup END
 " do not restore cursor position for git commit messages
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-" -----------------
-" Settings - Buffer
-" -----------------
+" ------
+" Buffer
+" ------
 
 " show line numbers
 set number
@@ -152,9 +115,9 @@ set scrolloff=999
 set sidescrolloff=999
 set virtualedit=all
 
-" -----------------------
-" Settings - Command line
-" -----------------------
+" ------------
+" Command line
+" ------------
 
 " tab completion
 set wildmenu
