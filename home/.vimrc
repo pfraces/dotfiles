@@ -191,9 +191,25 @@ autocmd FileType unite call s:unite_settings()
 nnoremap <silent> <C-s> :w<CR>
 inoremap <silent> <C-s> <Esc>:w<CR>i
 
-" close current window
-nnoremap <silent> <C-x> :close<CR>
-inoremap <silent> <C-x> <Esc>:close<CR>
+" close preview or current window
+function! s:isPreviewWindowOpened()
+  for nr in range(1, winnr('$'))
+    if getwinvar(nr, "&previewwindow") | return 1 | endif  
+  endfor
+
+  return 0
+endfunction
+
+function! s:closePreviewOrCurrentWindow()
+  if s:isPreviewWindowOpened() | pclose
+  else | close
+  endif
+
+  return ""
+endfunction
+
+nnoremap <silent> <C-x> :call <sid>closePreviewOrCurrentWindow()<CR>
+inoremap <silent> <C-x> <C-r>=<sid>closePreviewOrCurrentWindow()<CR>
 
 " ---------------------
 " Key Bindings - Leader
