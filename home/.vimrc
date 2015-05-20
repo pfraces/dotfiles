@@ -62,7 +62,7 @@ set hidden
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
 
-function! ResCur()
+function! s:ResCur()
   if line("'\"") <= line("$")
     normal! g`"zz
     return 1
@@ -71,7 +71,7 @@ endfunction
 
 augroup resCur
   autocmd!
-  autocmd BufWinEnter * call ResCur()
+  autocmd BufWinEnter * call s:ResCur()
 augroup END
 
 " do not restore cursor position for git commit messages
@@ -194,7 +194,7 @@ inoremap <silent> <C-s> <Esc>:w<CR>i
 " close preview or current window
 function! s:isPreviewWindowOpened()
   for nr in range(1, winnr('$'))
-    if getwinvar(nr, "&previewwindow") | return 1 | endif  
+    if getwinvar(nr, "&previewwindow") | return 1 | endif
   endfor
 
   return 0
@@ -204,12 +204,10 @@ function! s:closePreviewOrCurrentWindow()
   if s:isPreviewWindowOpened() | pclose
   else | close
   endif
-
-  return ""
 endfunction
 
 nnoremap <silent> <C-x> :call <sid>closePreviewOrCurrentWindow()<CR>
-inoremap <silent> <C-x> <C-r>=<sid>closePreviewOrCurrentWindow()<CR>
+inoremap <silent> <C-x> <Esc>:call <sid>closePreviewOrCurrentWindow()<CR>
 
 " ---------------------
 " Key Bindings - Leader
@@ -223,6 +221,14 @@ nnoremap <silent> <Leader><S-Tab> :bprevious<CR>
 
 " close current buffer
 nnoremap <silent> <Leader>x :Bdelete<CR>
+
+" close all buffers except the current one
+function! s:bufOnly()
+  let l:currentBuffer = bufnr('%')
+  bufdo if bufnr('%') != l:currentBuffer | bd | endif
+endfunction
+
+nnoremap <silent> <Leader><S-x> :call <sid>bufOnly()<CR>
 
 " file fuzzy find
 nnoremap <silent> <Leader>f :Unite file_rec/async<CR>
