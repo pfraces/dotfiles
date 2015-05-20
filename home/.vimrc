@@ -41,6 +41,7 @@ let g:neocomplete#enable_cursor_hold_i = 1
 
 " gitgutter
 let g:gitgutter_sign_column_always = 1
+let g:gitgutter_map_keys = 0
 
 " -------
 " General
@@ -201,17 +202,23 @@ inoremap <silent> <C-x> <Esc>:close<CR>
 let mapleader=","
 
 " navigate between buffers
-nnoremap <silent><Leader><Tab> :bnext<CR>
-nnoremap <silent><Leader><S-Tab> :bprevious<CR>
+nnoremap <silent> <Leader><Tab> :bnext<CR>
+nnoremap <silent> <Leader><S-Tab> :bprevious<CR>
 
 " close current buffer
-nnoremap <silent><Leader>x :Bdelete<CR>
+nnoremap <silent> <Leader>x :Bdelete<CR>
 
 " file fuzzy find
-nnoremap <silent><Leader>f :Unite file_rec/async<CR>
+nnoremap <silent> <Leader>f :Unite file_rec/async<CR>
 
 " toggle file explorer
 nnoremap <silent> <Leader>e :VimFilerExplorer -force-quit -project<CR>
 
 " git
 nnoremap <silent> <Leader>gs :Gstatus<CR>
+
+nmap <Leader>hn <Plug>GitGutterNextHunk
+nmap <Leader>hp <Plug>GitGutterPrevHunk
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterRevertHunk
+nmap <Leader>hd <Plug>GitGutterPreviewHunk
