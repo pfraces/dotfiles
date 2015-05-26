@@ -5,7 +5,7 @@
 Name=st
 GenericName=Terminal
 Comment=simple terminal
-Exec=env XMODIFIERS= /usr/bin/stterm -f "DejaVu Sans Mono:pixelsize=15"
+Exec=env XMODIFIERS= /usr/bin/stterm -f "inconsolata:pixelsize=15"
 Terminal=false
 Type=Application
 Icon=utilities-terminal
@@ -16,5 +16,5 @@ StartupWMClass=stterm-256color
 
 [Desktop Action New]
 Name=New Terminal
-Exec=env XMODIFIERS= /usr/bin/stterm -f "DejaVu Sans Mono:pixelsize=15"
+Exec=env XMODIFIERS= /usr/bin/stterm -f "inconsolata:pixelsize=15"
 OnlyShowIn=Unity
