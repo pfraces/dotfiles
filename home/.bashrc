@@ -39,3 +39,8 @@ case "$(lsb_release --id --short)" in
   "Arch") source $HOME/.bashrc.archlinux ;;
   "Ubuntu") source $HOME/.bashrc.ubuntu ;;
 esac
+
+# use ~/.bashrc.local for unversioned settings
+if test -f $HOME/.bashrc.local
+then source $HOME/.bashrc.local
+fi
