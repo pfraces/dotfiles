@@ -29,13 +29,13 @@ set $mod Mod1
 floating_modifier $mod
 
 bindsym $mod+Return exec st -f inconsolata:pixelsize=18
-bindsym $mod+c kill
 bindsym $mod+p exec dmenu_run
-bindsym $mod+z exec slock
-bindsym $mod+w exec chromium
+bindsym $mod+r reload
 bindsym Print exec scrot --multidisp --exec 'mv $f ~/Desktop' '%Y%m%d.png'
 
-bindsym $mod+a focus parent
+bindsym $mod+x kill
+bindsym $mod+z exec slock
+bindsym $mod+w exec chromium
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -87,6 +87,3 @@ bindsym $mod+Shift+7 move container to workspace 7; workspace 7
 bindsym $mod+Shift+8 move container to workspace 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
-
-bindsym $mod+r reload
-bindsym $mod+Shift+r restart
