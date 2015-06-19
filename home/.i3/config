@@ -31,7 +31,8 @@ floating_modifier $mod
 bindsym $mod+Return exec st -f inconsolata:pixelsize=18
 bindsym $mod+c kill
 bindsym $mod+p exec dmenu_run
-bindsym $mod+x exec slock
+bindsym $mod+z exec slock
+bindsym $mod+w exec chromium
 bindsym Print exec scrot --multidisp --exec 'mv $f ~/Desktop' '%Y%m%d.png'
 
 bindsym $mod+a focus parent
