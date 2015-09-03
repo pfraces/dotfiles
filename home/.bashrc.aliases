@@ -3,6 +3,7 @@ alias ls='ls -l --color=auto'
 alias grep='grep --color=auto'
 alias ag='ag --smart-case --pager="less -R"'
 alias less='less -SFRX'
+alias prj='npm run --silent'
 
 # git
 

@@ -37,7 +37,7 @@ i3
         scrot \
         ranger \
         xclip \
-        xkill \
+        xorg-xkill \
         htop
 
 Chromium
