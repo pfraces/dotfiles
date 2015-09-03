@@ -37,7 +37,7 @@ source $HOME/.bashrc.env
 
 case "$(lsb_release --id --short)" in
   "Arch") source $HOME/.bashrc.archlinux ;;
-  "Manjaro") source $HOME/.bashrc.manjaro ;;
+  "ManjaroLinux") source $HOME/.bashrc.manjaro ;;
   "Ubuntu") source $HOME/.bashrc.ubuntu ;;
 esac
 
