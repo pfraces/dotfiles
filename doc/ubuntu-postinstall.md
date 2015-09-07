@@ -115,6 +115,12 @@ Source: http://stackoverflow.com/a/13781363/1815446
 Ubuntu config
 -------------
 
+### Disable Unity online Search
+
+    Settings -> Security & Privacy -> Search -> Include online search [OFF]
+
+Source: http://www.unixmen.com/disable-unity-online-search-feature-ubuntu-14-10/
+
 ### Avoid double-typing password in lock screen
 
     Settings -> Brightness and Lock -> Lock [OFF]
