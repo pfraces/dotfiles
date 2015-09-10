@@ -60,6 +60,16 @@ Install utilities (using synaptic)
 Install utilities (from PPAs)
 -----------------------------
 
+### i3
+
+    echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" | sudo tee -a /etc/apt/sources.list
+    sudo apt-get update
+    sudo apt-get --allow-unauthenticated install sur5r-keyring
+    sudo apt-get update
+    sudo apt-get install i3
+
+Source: https://i3wm.org/docs/repositories.html
+
 ### nodejs
 
     sudo apt-get update
