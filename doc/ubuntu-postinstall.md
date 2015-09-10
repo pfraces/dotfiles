@@ -81,7 +81,6 @@ Install utilities (using synaptic)
     
     git clone https://github.com/vim/vim.git
     cd ~/build/vim/src
-    make distclean
     
     ./configure \
         --with-features=huge \
