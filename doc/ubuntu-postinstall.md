@@ -79,7 +79,7 @@ Install utilities (using synaptic)
     mkdir ~/build
     cd ~/build
     
-    hg clone https://code.google.com/p/vim/
+    git clone https://github.com/vim/vim.git
     cd ~/build/vim/src
     make distclean
     
