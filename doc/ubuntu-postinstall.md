@@ -70,6 +70,13 @@ Install utilities (from PPAs)
 
 Source: https://i3wm.org/docs/repositories.html
 
+### i3 desktop environment
+
+    sudo apt-get install \
+        suckless-tools \
+        scrot \
+        feh
+
 ### nodejs
 
     sudo apt-get update
