@@ -137,7 +137,7 @@ Source: https://i3wm.org/docs/repositories.html
 ### i3 desktop environment
 
     sudo apt-get install \
-        suckless-tools \
+        i3lock \
         scrot \
         feh
 
@@ -245,3 +245,11 @@ Source: http://askubuntu.com/a/174457
         Window Management > Static Application Switcher > Enable Static Application Switcher
 
 Source: http://askubuntu.com/questions/68151
+
+i3 config
+---------
+
+```
+bindsym $mod+Return exec XMODIFIERS= stterm -f inconsolata:pixelsize=15
+bindsym $mod+z exec i3lock --color 000000
+```
