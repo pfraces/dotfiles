@@ -266,7 +266,9 @@ bindsym $mod+z exec i3lock --color 000000
 
 Launch `lxappearance` and choose your preferred theme
 
-### Restore `notify-osd` notifications
+### Setup notifications
+
+**Remove `dunst`:**
 
 In Ubuntu, `i3` comes with `dunst` notifications system
 
@@ -276,3 +278,16 @@ killall dunst
 ```
 
 Source: http://askubuntu.com/a/383930
+
+**Replace ubuntu's `notify-osd` with gnome's `notification-daemon`**
+
+```
+sudo apt-get install notification-deamon
+```
+
+Edit `/usr/share/dbus-1/services/org.freedesktop.Notifications.service`:
+
+  * replace: `Exec=/usr/lib/x86_64-linux-gnu/notify-osd`
+  * with: `Exec=/usr/lib/notification-daemon/notification-daemon`
+
+Source: http://ubuntuforums.org/showthread.php?t=1663840
