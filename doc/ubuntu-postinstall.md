@@ -138,9 +138,12 @@ Source: https://i3wm.org/docs/repositories.html
 
     sudo apt-get install \
         i3lock \
+        suckless-tools \
         lxappearance \
         scrot \
         feh
+
+**Note:** `suckless-tools` is needed for `dmenu`
 
 ### nodejs
 
