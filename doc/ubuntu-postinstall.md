@@ -266,7 +266,7 @@ bindsym $mod+z exec i3lock --color 000000
 
 Launch `lxappearance` and choose your preferred theme
 
-### Restory `notify-osd` notifications
+### Restore `notify-osd` notifications
 
 In Ubuntu, `i3` comes with `dunst` notifications system
 
