@@ -138,6 +138,7 @@ Source: https://i3wm.org/docs/repositories.html
 
     sudo apt-get install \
         i3lock \
+        lxappearance \
         scrot \
         feh
 
@@ -249,7 +250,15 @@ Source: http://askubuntu.com/questions/68151
 i3 config
 ---------
 
+### Setup i3 keybindings
+
+`$HOME/.i3/config`
+
 ```
 bindsym $mod+Return exec XMODIFIERS= stterm -f inconsolata:pixelsize=15
 bindsym $mod+z exec i3lock --color 000000
 ```
+
+### Setup gtk theme
+
+Launch `lxappearance` and choose your preferred theme
