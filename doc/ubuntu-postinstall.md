@@ -46,7 +46,7 @@ Install utilities (using synaptic)
 
 ### Vim (with Lua support)
 
-    sudo apt-get remove --purge \
+    sudo apt-get purge \
         vim \
         vim-runtime \
         vim-gnome \
@@ -265,3 +265,14 @@ bindsym $mod+z exec i3lock --color 000000
 ### Setup gtk theme
 
 Launch `lxappearance` and choose your preferred theme
+
+### Restory `notify-osd` notifications
+
+In Ubuntu, `i3` comes with `dunst` notifications system
+
+```
+sudo apt-get purge dunst
+killall dunst
+```
+
+Source: http://askubuntu.com/a/383930
