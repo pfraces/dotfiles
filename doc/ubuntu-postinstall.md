@@ -200,11 +200,11 @@ Source: http://stackoverflow.com/a/13781363/1815446
 Ubuntu config
 -------------
 
-### Unlock `Ctrl+Space` keybinding
-
 Install dconf-editor
 
     sudo apt-get install dconf-editor
+
+### Unlock `Ctrl+Space` keybinding
 
 Remove keybindings from `ibus`
 
@@ -215,28 +215,31 @@ Remove keybindings from `ibus`
 
 Source: http://askubuntu.com/a/243653
 
+Unity config
+------------
+
+Install settings managers
+
+    sudo apt-get install \
+        unity-tweak-tool \
+        compizconfig-settings-manager \
+        compiz-plugins
+
 ### Disable Unity online Search
 
-    Settings -> Security & Privacy -> Search -> Include online search [OFF]
+    unity-control-center > Security & Privacy > Search > Include online search: off
 
 Source: http://www.unixmen.com/disable-unity-online-search-feature-ubuntu-14-10/
 
 ### Avoid double-typing password in lock screen
 
-    Settings -> Brightness and Lock -> Lock [OFF]
+    unity-control-center > Brightness and Lock > Lock: off
 
 Source: http://simionbaws.ro/linux/ubuntu-14-04-lock-screen-asking-password-twice/
 
-Unity config
-------------
-
-Install unity-tweak-tool
-
-    sudo apt-get install unity-tweak-tool
-
 ### Change number of workspaces
 
-    Window Manager > Workspace Settings
+    unity-tweak-tool > Window Manager > Workspace Settings
 
 Source: http://askubuntu.com/a/108306
 
@@ -244,24 +247,20 @@ Source: http://askubuntu.com/a/108306
 
 *(Ignore this step if you are going to disable window grouping as shown below)*
 
-    Unity > Switcher > Display "Show Desktop" icon
+    unity-tweak-tool > Unity > Switcher > Display "Show Desktop" icon
 
 Source: http://askubuntu.com/a/174457
 
 ### Disable window grouping in window switcher
 
-    sudo apt-get install compizconfig-settings-manager
-    sudo apt-get install compiz-plugins
-    ccsm
-
 *   Disable the keyboard shortcuts for Unity's switcher by unchecking:
 
-        Desktop > Ubuntu Unity Plugin > Switcher > Key to start the switcher > Enabled
-        Desktop > Ubuntu Unity Plugin > Switcher > Key to start the switcher in reverse > Enabled
+        ccsm > Desktop > Ubuntu Unity Plugin > Switcher > Key to start the switcher > Enabled
+        ccsm > Desktop > Ubuntu Unity Plugin > Switcher > Key to start the switcher in reverse > Enabled
 
 *   Enable the Static Application Switcher by checking:
 
-        Window Management > Static Application Switcher > Enable Static Application Switcher
+       ccsm >  Window Management > Static Application Switcher > Enable Static Application Switcher
 
 Source: http://askubuntu.com/questions/68151
 
