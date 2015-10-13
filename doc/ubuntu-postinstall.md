@@ -200,6 +200,21 @@ Source: http://stackoverflow.com/a/13781363/1815446
 Ubuntu config
 -------------
 
+### Unlock `Ctrl+Space` keybinding
+
+Install dconf-editor
+
+    sudo apt-get install dconf-editor
+
+Remove keybindings from `ibus`
+
+    dconf-editor > desktop > ibus > general > hotkey
+
+  > The trigger and triggers setting will still show 'control+space'. 
+    Edit these settings out, being careful to leave empty brackets [] in triggers.
+
+Source: http://askubuntu.com/a/243653
+
 ### Disable Unity online Search
 
     Settings -> Security & Privacy -> Search -> Include online search [OFF]
