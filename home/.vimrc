@@ -241,7 +241,7 @@ nnoremap <silent> <Leader><S-x> :call <sid>bufOnly()<CR>
 nnoremap <silent> <Leader>f :Unite file_rec/async<CR>
 
 " toggle file explorer
-nnoremap <silent> <Leader>e :VimFilerExplorer -force-quit -project<CR>
+nnoremap <silent> <Leader>e :VimFilerExplorer -force-hide<CR>
 
 " git
 nnoremap <silent> <Leader>gs :Gstatus<CR>
