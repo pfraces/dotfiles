@@ -36,6 +36,12 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 
+function! s:vimfiler_settings()
+  set nonumber
+endfunction
+
+autocmd FileType vimfiler call s:vimfiler_settings()
+
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#auto_completion_start_length = 3
