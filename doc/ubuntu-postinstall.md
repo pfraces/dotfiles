@@ -42,7 +42,8 @@ Install utilities (using synaptic)
         ranger \
         meld \
         xclip \
-        gpick
+        gpick \
+        galculator
 
 ### Vim (with Lua support)
 
