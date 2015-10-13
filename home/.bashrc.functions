@@ -110,12 +110,6 @@ function save () {
     git push origin --tags
 }
 
-# Add an origin remote pointing to github
-
-function ghr () {
-    git remote add origin https://pfraces@github.com/$1
-}
-
 # Clone a github repo
 
 function ghc () {

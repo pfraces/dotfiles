@@ -42,11 +42,12 @@ Install utilities (using synaptic)
         ranger \
         meld \
         xclip \
-        gpick
+        gpick \
+        galculator
 
 ### Vim (with Lua support)
 
-    sudo apt-get remove --purge \
+    sudo apt-get purge \
         vim \
         vim-runtime \
         vim-gnome \
@@ -137,9 +138,13 @@ Source: https://i3wm.org/docs/repositories.html
 ### i3 desktop environment
 
     sudo apt-get install \
+        i3lock \
         suckless-tools \
+        lxappearance \
         scrot \
         feh
+
+**Note:** `suckless-tools` is needed for `dmenu`
 
 ### nodejs
 
@@ -196,28 +201,46 @@ Source: http://stackoverflow.com/a/13781363/1815446
 Ubuntu config
 -------------
 
+Install dconf-editor
+
+    sudo apt-get install dconf-editor
+
+### Unlock `Ctrl+Space` keybinding
+
+Remove keybindings from `ibus`
+
+    dconf-editor > desktop > ibus > general > hotkey
+
+  > The trigger and triggers setting will still show 'control+space'. 
+    Edit these settings out, being careful to leave empty brackets [] in triggers.
+
+Source: http://askubuntu.com/a/243653
+
+Unity config
+------------
+
+Install settings managers
+
+    sudo apt-get install \
+        unity-tweak-tool \
+        compizconfig-settings-manager \
+        compiz-plugins
+
 ### Disable Unity online Search
 
-    Settings -> Security & Privacy -> Search -> Include online search [OFF]
+    unity-control-center > Security & Privacy > Search > Include online search: off
 
 Source: http://www.unixmen.com/disable-unity-online-search-feature-ubuntu-14-10/
 
 ### Avoid double-typing password in lock screen
 
-    Settings -> Brightness and Lock -> Lock [OFF]
+    unity-control-center > Brightness and Lock > Lock: off
 
 Source: http://simionbaws.ro/linux/ubuntu-14-04-lock-screen-asking-password-twice/
 
-Unity config
-------------
-
-Install unity-tweak-tool
-
-    sudo apt-get install unity-tweak-tool
-
 ### Change number of workspaces
 
-    Window Manager > Workspace Settings
+    unity-tweak-tool > Window Manager > Workspace Settings
 
 Source: http://askubuntu.com/a/108306
 
@@ -225,23 +248,61 @@ Source: http://askubuntu.com/a/108306
 
 *(Ignore this step if you are going to disable window grouping as shown below)*
 
-    Unity > Switcher > Display "Show Desktop" icon
+    unity-tweak-tool > Unity > Switcher > Display "Show Desktop" icon
 
 Source: http://askubuntu.com/a/174457
 
 ### Disable window grouping in window switcher
 
-    sudo apt-get install compizconfig-settings-manager
-    sudo apt-get install compiz-plugins
-    ccsm
-
 *   Disable the keyboard shortcuts for Unity's switcher by unchecking:
 
-        Desktop > Ubuntu Unity Plugin > Switcher > Key to start the switcher > Enabled
-        Desktop > Ubuntu Unity Plugin > Switcher > Key to start the switcher in reverse > Enabled
+        ccsm > Desktop > Ubuntu Unity Plugin > Switcher > Key to start the switcher > Enabled
+        ccsm > Desktop > Ubuntu Unity Plugin > Switcher > Key to start the switcher in reverse > Enabled
 
 *   Enable the Static Application Switcher by checking:
 
-        Window Management > Static Application Switcher > Enable Static Application Switcher
+       ccsm >  Window Management > Static Application Switcher > Enable Static Application Switcher
 
 Source: http://askubuntu.com/questions/68151
+
+i3 config
+---------
+
+### Setup i3 keybindings
+
+`$HOME/.i3/config`
+
+```
+bindsym $mod+Return exec XMODIFIERS= stterm -f inconsolata:pixelsize=15
+bindsym $mod+z exec i3lock --color 000000
+```
+
+### Setup gtk theme
+
+Launch `lxappearance` and choose your preferred theme
+
+### Setup notifications
+
+**Remove `dunst`:**
+
+In Ubuntu, `i3` comes with `dunst` notifications system
+
+```
+sudo apt-get purge dunst
+killall dunst
+```
+
+Source: http://askubuntu.com/a/383930
+
+**Replace ubuntu's `notify-osd` with gnome's `notification-daemon`**
+
+```
+sudo apt-get install notification-deamon
+```
+
+Edit `/usr/share/dbus-1/services/org.freedesktop.Notifications.service`:
+
+  * replace: `Exec=/usr/lib/x86_64-linux-gnu/notify-osd`
+  * with: `Exec=/usr/lib/notification-daemon/notification-daemon`
+
+Source: http://ubuntuforums.org/showthread.php?t=1663840
