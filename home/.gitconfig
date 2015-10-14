@@ -1,8 +1,14 @@
 [user]
 	email = pfraces@gmail.com
 	name = Pau Fracés
+[url "https://"]
+	insteadOf = git://
 [core]
 	excludesfile = ~/.gitignore
+	editor = vim
+  pager = less -SFRX
+[pager]
+  status = true
 [credential]
 	helper = cache --timeout=3600
 [merge]
