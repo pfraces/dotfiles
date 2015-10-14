@@ -37,7 +37,7 @@ let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 let g:vimfiler_readonly_file_icon = ''
 
-autocmd FileType vimfiler set nonumber
+autocmd FileType vimfiler setlocal nonumber
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
