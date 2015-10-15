@@ -102,7 +102,9 @@ function save () {
         fi
     fi
 
+    # TODO: check if error is merge or password
     git pull origin master || return $(err MERGE_CONFLICT)
+
     git fetch origin --tags
 
     test -n "$newTag" && git tag $newTag
