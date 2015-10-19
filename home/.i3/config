@@ -73,11 +73,9 @@ bindsym $mod+Control+Shift+l resize shrink left
 bindsym $mod+Shift+space split h
 bindsym $mod+space split v
 
-bindsym $mod+i fullscreen
-bindsym $mod+Shift+i fullscreen global
-bindsym $mod+t layout tabbed
-bindsym $mod+y layout toggle split
-bindsym $mod+u floating toggle
+bindsym --whole-window $mod+Shift+button3 fullscreen
+bindsym --whole-window $mod+Shift+button2 fullscreen global
+bindsym --whole-window $mod+Shift+button1 floating toggle
 
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
