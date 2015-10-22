@@ -34,14 +34,3 @@ stty -ixon
 source $HOME/.bashrc.aliases
 source $HOME/.bashrc.functions
 source $HOME/.bashrc.env
-
-case "$(lsb_release --id --short)" in
-  "Arch") source $HOME/.bashrc.archlinux ;;
-  "ManjaroLinux") source $HOME/.bashrc.manjaro ;;
-  "Ubuntu") source $HOME/.bashrc.ubuntu ;;
-esac
-
-# use ~/.bashrc.local for unversioned settings
-if test -f $HOME/.bashrc.local
-then source $HOME/.bashrc.local
-fi

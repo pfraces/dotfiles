@@ -1,16 +1,13 @@
-PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
-source ~/build/z/z.sh
-
-function xapp () {
-    winid=$(xprop | awk '/_NET_WM_PID\(CARDINAL\)/{ print $NF }')
-    ps -e | grep $winid | awk '{ print $NF }'
-}
-
-function lsport () {
-    lsof -Pnl +M -i4 | grep $1
-}
+36a37,48
+> 
+> # ------
+> # ubuntu
+> # ------
+> 
+> PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
+> 
+> if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+>     . /etc/bash_completion
+> fi
+> 
+> source ~/build/z/z.sh

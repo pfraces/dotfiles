@@ -11,6 +11,15 @@ function open () {
     done
 }
 
+function xapp () {
+    winid=$(xprop | awk '/_NET_WM_PID\(CARDINAL\)/{ print $NF }')
+    ps -e | grep $winid | awk '{ print $NF }'
+}
+
+function lsport () {
+    lsof -Pnl +M -i4 | grep $1
+}
+
 # Vim
 
 function vimrecover () {
