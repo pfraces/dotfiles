@@ -9,26 +9,26 @@
 # Usage
 # -----
 #
-#     install-home foo bar qux ...
+#     install foo bar qux ...
 #
 # If no arguments are passed, all config files are installed
 #
-#     install-home
+#     install
 #
 
-function install-home () {
+function install () {
   if test $# -eq 0
   then
-    install-home $(find "home/" -type f | cut -sd / -f 2-)
+    install $(find "home/" -type f | cut -sd / -f 2-)
     exit
   fi
 
   while test $# -gt 0
   do
     mkdir -p "$HOME/$(dirname $1)" 2> /dev/null
-    cp "home/$1" "$HOME/$1"
+    cp "base/$1" "$HOME/$1"
     shift
   done
 }
 
-install-home $@
+install $@
