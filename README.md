@@ -8,18 +8,16 @@ Install
 
     git clone https://github.com/pfraces/dotfiles
     cd dotfiles
-    ./install.sh [patches...]
+    ./install.sh archlinux manjaro
 
 `install.sh` will replace your dotfiles with the `base` settings
 
-Additional patches are available to fine-grained setup. Patches can be provided
-as a list of script parameters or be declared in `~/.dotfilesrc`
+Additional patch collections are available to fine-grained setup.
 
 Setup
 -----
 
 **`~/.dotfilesrc`**
 
-    PATCHES=<patches...>
     WIFI_ESSID=<wifi name>
     WIFI_KEY=<wifi password>

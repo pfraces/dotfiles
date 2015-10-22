@@ -21,7 +21,7 @@ function install-base () {
   if test $# -eq 0
   then
     install-base $(find "base/" -type f | cut -sd / -f 2-)
-    exit
+    return
   fi
 
   while test $# -gt 0
@@ -52,7 +52,7 @@ function install-base () {
 function apply-patch () {
   if test $# -eq 0
   then
-    echo 'err: collection is required' 1>&2
+    echo 'err: collection is required' >&2
     exit 1
   fi
 
@@ -62,7 +62,7 @@ function apply-patch () {
   if test $# -eq 0
   then
     apply-patch $collection $(find "patches/$collection/" -type f | cut -sd / -f 3-)
-    exit
+    return
   fi
 
   while test $# -gt 0
@@ -78,24 +78,26 @@ function apply-patch () {
 # install.sh
 # ==========
 #
-# Install base files and apply all patches from selected collection
+# Install base files and apply all patches from selected patch collections
 #
 # Usage
 # -----
 #
-#     ./install.sh [patch collection]
+#     ./install.sh [collections...]
 #
-#     ./install.sh archlinux
+#     ./install.sh archlinux manjaro
 #     ./install.sh
 #
-# If no parameters are specified, base files are still installed but no patches
-# are be applied
+# Collections are patched in order
+#
+# If no collection is specified, base files are still installed but no patches
+# are applied
 #
 
 install-base
 
 while test $# -gt 0
 do
-  apply-patch $1
+  apply-patch $1 > /dev/null
   shift
 done
