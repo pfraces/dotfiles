@@ -69,6 +69,10 @@ set mouse=a
 " hide unsaved buffers
 set hidden
 
+" more natural split opening
+set splitbelow
+set splitright
+
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
 

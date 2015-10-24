@@ -1,34 +1,100 @@
 #!/bin/bash
 
 #
-# install-home
+# install-base
 # ============
 #
-# Selectively install config files
+# Install base files in home directory
 #
 # Usage
 # -----
 #
-#     install-home foo bar qux ...
+#     install-base [files...]
 #
-# If no arguments are passed, all config files are installed
+#     install-base .bashrc .tmux.conf
+#     install-base
 #
-#     install-home
+# If no arguments are passed, all base files are installed
 #
 
-function install-home () {
+function install-base () {
   if test $# -eq 0
   then
-    install-home $(find "home/" -type f | cut -sd / -f 2-)
-    exit
+    install-base $(find "base/" -type f | cut -sd / -f 2-)
+    return
   fi
 
   while test $# -gt 0
   do
     mkdir -p "$HOME/$(dirname $1)" 2> /dev/null
-    cp "home/$1" "$HOME/$1"
+    cp "base/$1" "$HOME/$1"
     shift
   done
 }
 
-install-home $@
+#
+# append-target
+# =============
+#
+# Append target files to home files
+#
+# Usage
+# -----
+#
+#     append-target <target> [files...] 
+#
+#     append-target archlinux .bashrc .tmux.conf
+#     append-target archlinux
+#
+# If no arguments are passed, all files from selected target are appended
+#
+
+function append-target () {
+  if test $# -eq 0
+  then
+    echo 'err: target is mandatory' >&2
+    exit 1
+  fi
+
+  target=$1
+  shift
+
+  if test $# -eq 0
+  then
+    append-target $target $(find "target/$target/" -type f | cut -sd / -f 3-)
+    return
+  fi
+
+  while test $# -gt 0
+  do
+    mkdir -p "$HOME/$(dirname $1)" 2> /dev/null
+    touch "$HOME/$1"
+    cat "target/$target/$1" >> "$HOME/$1"
+    shift
+  done
+}
+
+#
+# install.sh
+# ==========
+#
+# Install base files and append targets in order
+#
+# Usage
+# -----
+#
+#     ./install.sh [targets...]
+#
+#     ./install.sh archlinux manjaro
+#     ./install.sh
+#
+# If no target is specified, only base files are installed
+#
+
+install-base
+
+while test $# -gt 0
+do
+  append-target $1 > /dev/null
+  shift
+done

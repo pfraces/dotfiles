@@ -3,27 +3,21 @@ dotfiles
 
 System configuration
 
-Prerequisites
--------------
-
-*   `git`
-*   `lsb_release`
-
 Install
 -------
 
     git clone https://github.com/pfraces/dotfiles
     cd dotfiles
-    ./install.sh
+    ./install.sh archlinux manjaro
 
-### Update fonts cache
+`install.sh` will replace your dotfiles with the `base` settings
 
-    fc-cache -vf
+Additional patch collections are available to fine-grained setup.
 
 Setup
 -----
 
-Create `~/.dotfilesrc` and setup the following env variables:
+**`~/.dotfilesrc`**
 
-*   `WIFI_ESSID`
-*   `WIFI_KEY`
+    WIFI_ESSID=<wifi name>
+    WIFI_KEY=<wifi password>
