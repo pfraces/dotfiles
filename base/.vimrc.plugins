@@ -37,4 +37,9 @@ Plug 'rking/ag.vim'
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
+" tmux seamless pane switching
+Plug 'christoomey/vim-tmux-navigator'
+
+
+" -------------
 call plug#end()

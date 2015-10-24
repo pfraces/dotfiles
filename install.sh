@@ -33,35 +33,35 @@ function install-base () {
 }
 
 #
-# apply-patch
-# ===========
+# append-target
+# =============
 #
-# Apply patches to home files
+# Append target files to home files
 #
 # Usage
 # -----
 #
-#     apply-patch <collection> [files...] 
+#     append-target <target> [files...] 
 #
-#     apply-patch archlinux .bashrc .tmux.conf
-#     apply-patch archlinux
+#     append-target archlinux .bashrc .tmux.conf
+#     append-target archlinux
 #
-# If no arguments are passed, all patches from selected platform are applied
+# If no arguments are passed, all files from selected target are appended
 #
 
-function apply-patch () {
+function append-target () {
   if test $# -eq 0
   then
-    echo 'err: collection is required' >&2
+    echo 'err: target is mandatory' >&2
     exit 1
   fi
 
-  collection=$1
+  target=$1
   shift
 
   if test $# -eq 0
   then
-    apply-patch $collection $(find "patches/$collection/" -type f | cut -sd / -f 3-)
+    append-target $target $(find "target/$target/" -type f | cut -sd / -f 3-)
     return
   fi
 
@@ -69,7 +69,7 @@ function apply-patch () {
   do
     mkdir -p "$HOME/$(dirname $1)" 2> /dev/null
     touch "$HOME/$1"
-    patch "$HOME/$1" "patches/$collection/$1"
+    cat "target/$target/$1" >> "$HOME/$1"
     shift
   done
 }
@@ -78,26 +78,23 @@ function apply-patch () {
 # install.sh
 # ==========
 #
-# Install base files and apply all patches from selected patch collections
+# Install base files and append targets in order
 #
 # Usage
 # -----
 #
-#     ./install.sh [collections...]
+#     ./install.sh [targets...]
 #
 #     ./install.sh archlinux manjaro
 #     ./install.sh
 #
-# Collections are patched in order
-#
-# If no collection is specified, base files are still installed but no patches
-# are applied
+# If no target is specified, only base files are installed
 #
 
 install-base
 
 while test $# -gt 0
 do
-  apply-patch $1 > /dev/null
+  append-target $1 > /dev/null
   shift
 done
