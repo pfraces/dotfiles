@@ -1,3 +1,6 @@
+# git intermediate merge files
+*.orig
+
 # vim temporary files
 .*.swp
 
