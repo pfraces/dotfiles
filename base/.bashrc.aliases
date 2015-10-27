@@ -2,6 +2,7 @@ alias sudo='sudo '
 alias ls='ls -l --color=auto'
 alias grep='grep --color=auto'
 alias less='less -SFRX'
+alias find='find . -name'
 alias bc='bc --quiet'
 
 alias ag='ag --smart-case --pager="less -SRFX"'
