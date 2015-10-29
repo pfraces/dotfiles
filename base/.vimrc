@@ -23,6 +23,10 @@ call unite#custom#profile('default', 'context', {
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
+function! s:unite_settings()
+  call s:unite_keybindings()
+endfunction
+
 " vimfiler
 let g:vimfiler_as_default_explorer = 1
 call vimfiler#custom#profile('default', 'context', {
@@ -37,7 +41,10 @@ let g:vimfiler_file_icon = '□'
 let g:vimfiler_marked_file_icon = '▣'
 let g:vimfiler_readonly_file_icon = ''
 
-autocmd FileType vimfiler setlocal nonumber
+function! s:vimfiler_settings()
+  " do not show numbers
+  setlocal nonumber
+endfunction
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -73,23 +80,11 @@ set hidden
 set splitbelow
 set splitright
 
-" restore cursor position when opening a file
-set viminfo='10,"100,:20,%,n~/.viminfo
+" command tab completion
+set wildmenu
 
-function! s:ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"zz
-    return 1
-  endif
-endfunction
-
-augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call s:ResCur()
-augroup END
-
-" do not restore cursor position for git commit messages
-au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+" show command as its being typed
+set showcmd
 
 " ------
 " Buffer
@@ -130,15 +125,31 @@ set scrolloff=999
 set sidescrolloff=999
 set virtualedit=all
 
+" restore cursor position when opening a file
+set viminfo='10,"100,:20,%,n~/.viminfo
+
+function! s:ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"zz
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call s:ResCur()
+augroup END
+
 " ------------
-" Command line
+" Autocommands
 " ------------
 
-" tab completion
-set wildmenu
+" load settings
+autocmd FileType unite call s:unite_settings()
+autocmd FileType vimfiler call s:vimfiler_settings()
 
-" show command as its being typed
-set showcmd
+" do not restore cursor position for git commit messages
+autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " -----
 " Theme
@@ -163,8 +174,7 @@ set cursorline
 execute 'highlight CursorLine cterm=NONE ctermbg=' . s:grey
 
 " vertical window separator
-execute 'highlight VertSplit ctermfg=black ctermbg=' . s:darkgrey
-set fillchars+=vert:│
+execute 'highlight VertSplit ctermfg=' . s:lightgrey . ' ctermbg=' . s:lightgrey
 
 " number / gutter
 execute 'highlight LineNr ctermbg=' . s:lightgrey
@@ -189,13 +199,11 @@ nnoremap <S-Tab> <lt><lt>
 " tab completion
 inoremap <expr> <Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
 
-" tab completion (unite)
-function! s:unite_settings()
+function! s:unite_keybindings()
+  " unite: tab completion
   imap <buffer> <Tab>   <Plug>(unite_select_next_line)
   imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)
 endfunction
-
-autocmd FileType unite call s:unite_settings()
 
 " ----------------------
 " Key Bindings - Control
@@ -249,6 +257,7 @@ nnoremap <silent> <Leader>f :Unite file_rec/async<CR>
 
 " toggle file explorer
 nnoremap <silent> <Leader>e :VimFilerExplorer -force-hide<CR>
+nnoremap <silent> <Leader>E :VimFilerExplorer -no-quit<CR>
 
 " git
 nnoremap <silent> <Leader>gs :Gstatus<CR>
