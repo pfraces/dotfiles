@@ -1,5 +1,5 @@
 alias sudo='sudo '
-alias ls='ls -l --color=auto'
+alias ls='ls -la --group-directories-firt --color=auto'
 alias grep='grep --color=auto'
 alias less='less -SFRX'
 alias find='find . -name'
