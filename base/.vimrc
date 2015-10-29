@@ -1,62 +1,4 @@
 " -------
-" Plugins
-" -------
-
-source ~/.vimrc.plugins
-
-" airline
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-" unite
-if executable('ag')
-  let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --hidden -g ""'
-endif
-
-call unite#custom#profile('default', 'context', {
-  \   'start_insert': 1,
-  \   'winheight': 10
-  \ })
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-
-function! s:unite_settings()
-  call s:unite_keybindings()
-endfunction
-
-" vimfiler
-let g:vimfiler_as_default_explorer = 1
-call vimfiler#custom#profile('default', 'context', {
-  \   'safe': 0
-  \ })
-
-let g:vimfiler_tree_indentation = 2
-let g:vimfiler_tree_leaf_icon = ''
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = '□'
-let g:vimfiler_marked_file_icon = '▣'
-let g:vimfiler_readonly_file_icon = ''
-
-function! s:vimfiler_settings()
-  " do not show numbers
-  setlocal nonumber
-endfunction
-
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#auto_completion_start_length = 3
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#enable_cursor_hold_i = 1
-
-" gitgutter
-let g:gitgutter_sign_column_always = 1
-let g:gitgutter_map_keys = 0
-
-" -------
 " General
 " -------
 
@@ -125,6 +67,9 @@ set scrolloff=999
 set sidescrolloff=999
 set virtualedit=all
 
+" auto reload on file change
+autocmd CursorHold * checktime
+
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
 
@@ -139,6 +84,64 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call s:ResCur()
 augroup END
+
+" -------
+" Plugins
+" -------
+
+source ~/.vimrc.plugins
+
+" airline
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" unite
+if executable('ag')
+  let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --hidden -g ""'
+endif
+
+call unite#custom#profile('default', 'context', {
+  \   'start_insert': 1,
+  \   'winheight': 10
+  \ })
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+function! s:unite_settings()
+  call s:unite_keybindings()
+endfunction
+
+" vimfiler
+let g:vimfiler_as_default_explorer = 1
+call vimfiler#custom#profile('default', 'context', {
+  \   'safe': 0
+  \ })
+
+let g:vimfiler_tree_indentation = 2
+let g:vimfiler_tree_leaf_icon = ''
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '□'
+let g:vimfiler_marked_file_icon = '▣'
+let g:vimfiler_readonly_file_icon = ''
+
+function! s:vimfiler_settings()
+  " do not show numbers
+  setlocal nonumber
+endfunction
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#auto_completion_start_length = 3
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_cursor_hold_i = 1
+
+" gitgutter
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_map_keys = 0
 
 " ------------
 " Autocommands
