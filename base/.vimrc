@@ -1,7 +1,3 @@
-" -------
-" General
-" -------
-
 " be iMproved
 set nocompatible
 
@@ -27,10 +23,6 @@ set wildmenu
 
 " show command as its being typed
 set showcmd
-
-" ------
-" Buffer
-" ------
 
 " show line numbers
 set number
@@ -255,12 +247,14 @@ endfunction
 
 nnoremap <silent> <Leader><S-x> :call <sid>bufOnly()<CR>
 
+" open pane
+nnoremap <silent> <Leader><Space> :vsp<CR>
+
 " file fuzzy find
 nnoremap <silent> <Leader>f :Unite file_rec/async<CR>
 
 " toggle file explorer
 nnoremap <silent> <Leader>e :VimFilerExplorer -force-hide<CR>
-nnoremap <silent> <Leader>E :VimFilerExplorer -no-quit<CR>
 
 " git
 nnoremap <silent> <Leader>gs :Gstatus<CR>
