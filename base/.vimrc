@@ -65,7 +65,7 @@ autocmd CursorHold * checktime
 " restore cursor position when opening a file
 set viminfo='10,"100,:20,%,n~/.viminfo
 
-function! s:ResCur()
+function! s:resCur()
   if line("'\"") <= line("$")
     normal! g`"zz
     return 1
@@ -74,8 +74,19 @@ endfunction
 
 augroup resCur
   autocmd!
-  autocmd BufWinEnter * call s:ResCur()
+  autocmd BufWinEnter * call s:resCur()
 augroup END
+
+" do not leave empty buffers opened
+" http://stackoverflow.com/a/10102604
+function! s:cleanEmptyBuffers()
+  let buffers = filter(range(0, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val)<0')
+  if !empty(buffers)
+    exe 'bw '.join(buffers, ' ')
+  endif
+endfunction
+
+autocmd BufWinEnter * call s:cleanEmptyBuffers()
 
 " -------
 " Plugins
