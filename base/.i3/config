@@ -1,12 +1,24 @@
 # autostart
 exec ~/.i3/autostart
 
-# behaviour
-focus_follows_mouse no
+# variables
 
-# map workspaces to monitors
+# keybinding modifier
+set $mod Mod4
 
-## home - triplehead
+# apps (default)
+set $term xterm
+
+# apps (archlinux)
+# set $term st -f inconsolata:pixelsize=18
+# set $lock slock
+
+# apps (ubuntu)
+# set $term XMODIFIERS= stterm -f inconsolata:pixelsize=15
+# set $lock i3lock --color 000000
+
+# triplehead (HDMI + DVI + DVI)
+
 # workspace 1 output HDMI-0
 # workspace 2 output DVI-1
 # workspace 3 output DVI-0
@@ -17,7 +29,8 @@ focus_follows_mouse no
 # workspace 8 output DVI-1
 # workspace 9 output DVI-0
 
-## work - doublehead
+# doublehead (VGA + DisplayPort)
+
 # workspace 1 output VGA1
 # workspace 2 output DP1
 # workspace 3 output VGA1
@@ -27,6 +40,9 @@ focus_follows_mouse no
 # workspace 7 output VGA1
 # workspace 8 output DP1
 # workspace 9 output VGA1
+
+# behaviour
+focus_follows_mouse no
 
 # style
 new_window 1pixel
@@ -38,16 +54,18 @@ bar {
 }
 
 # keybindings
-set $mod Mod1
 floating_modifier $mod
 
-bindsym $mod+Return exec st -f inconsolata:pixelsize=18
+for_window [instance="floating"] floating enable
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term -c floating
+
+bindsym $mod+z exec $lock
 bindsym $mod+p exec dmenu_run
 bindsym $mod+r reload
 bindsym Print exec scrot --multidisp --exec 'mv $f ~/Desktop' '%Y%m%d.png'
 
 bindsym $mod+x kill
-bindsym $mod+z exec slock
 bindsym $mod+w exec chromium
 
 bindsym $mod+h focus left
