@@ -86,7 +86,7 @@ function! s:cleanEmptyBuffers()
   endif
 endfunction
 
-autocmd BufWinEnter * call s:cleanEmptyBuffers()
+autocmd WinEnter * call s:cleanEmptyBuffers()
 
 " -------
 " Plugins
@@ -242,6 +242,9 @@ inoremap <silent> <C-x> <Esc>:call <sid>closePreviewOrCurrentWindow()<CR>
 " ---------------------
 
 let mapleader=","
+
+" create new empty buffer
+nnoremap <silent> <Leader>n :enew<CR>
 
 " navigate between buffers
 nnoremap <silent> <Leader><Tab> :bnext<CR>
