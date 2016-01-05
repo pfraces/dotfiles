@@ -1,6 +1,9 @@
 " be iMproved
 set nocompatible
 
+" clean GUI
+set guioptions=
+
 " smooth scrolling
 set ttyfast
 set lazyredraw
