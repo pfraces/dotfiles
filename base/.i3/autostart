@@ -2,7 +2,7 @@
 
 (
   feh --bg-scale /usr/share/wallpapers/hokusai.jpg &&
-  triplehead
+  monitors.sh
 ) &
 
 wifi &
