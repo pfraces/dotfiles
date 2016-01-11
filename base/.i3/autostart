@@ -1,9 +1,13 @@
 #!/bin/bash
 
 (
-  feh --bg-scale /usr/share/wallpapers/hokusai.jpg &&
+  # feh --bg-scale /usr/share/wallpapers/hokusai.jpg &&
   monitors.sh
 ) &
 
-wifi &
-xcompmgr &
+# wifi &
+# xcompmgr &
+
+# apps
+
+# skype &
