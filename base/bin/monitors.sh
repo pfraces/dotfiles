@@ -11,4 +11,4 @@
 
 # work (dual head)
 # xrandr --output VGA1 --auto --pos 0x0
-# xrandr --output DP1 --auto -left-of VGA1
+# xrandr --output DP1 --auto --left-of VGA1
