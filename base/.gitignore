@@ -3,6 +3,7 @@
 
 # vim temporary files
 .*.swp
+.*.swo
 
 # gedit temporary files
 *~
