@@ -6,7 +6,7 @@ alias find='find . -name'
 alias bc='bc --quiet'
 
 alias ag='ag --smart-case --pager="less -SRFX"'
-alias prj='npm run --silent'
+alias do='npm run --silent'
 
 # git
 
