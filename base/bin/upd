@@ -1,4 +1,5 @@
 #!/bin/bash
 
+sudo pacman-key --refresh-keys
 sudo reflector --verbose -l 3 --sort rate --save /etc/pacman.d/mirrorlist
 TMPDIR=~/tmp packer -Syu --noconfirm
