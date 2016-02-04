@@ -1,6 +1,9 @@
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# fix st terminfo entry
+TERM=screen-256color
+
 # start a tmux session
 [ -z "$TMUX" ] && [ -n "$DISPLAY" ] && tmux -2 new-session && exit
 
