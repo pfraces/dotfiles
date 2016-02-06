@@ -133,11 +133,13 @@ function ghc () {
 # Clone a github own repo
 
 function ghco () {
-    repo=$1
-    account=$2
+    account=$1
+    repo=$2
 
-    if test -z $account
-    then account=pfraces
+    if test -z $repo
+    then
+      repo=$account
+      account=pfraces
     fi
 
     git clone https://pfraces@github.com/${account}/${repo}.git
