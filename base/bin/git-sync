@@ -40,27 +40,27 @@ root=$(git rev-parse --show-toplevel)
 newTag=$1
 
 if test -z "$currentBranch"
-then return $(err NO_GIT_REPO)
+then exit $(err NO_GIT_REPO)
 fi
 
 if test -z "$(git config user.name)"
-then return $(err NO_USER_NAME)
+then exit $(err NO_USER_NAME)
 fi
 
 if test -z "$(git config user.email)"
-then return $(err NO_USER_EMAIL)
+then exit $(err NO_USER_EMAIL)
 fi
 
 if test "$currentBranch" = 'HEAD'
-then return $(err EMPTY_REPO)
+then exit $(err EMPTY_REPO)
 fi
 
 if test -z "$(git remote | grep origin)"
-then return $(err NO_ORIGIN)
+then exit $(err NO_ORIGIN)
 fi
 
 if test "$currentBranch" = 'master' -a "$allow_master" != 'true'
-then return $(err MASTER_BRANCH)
+then exit $(err MASTER_BRANCH)
 fi
 
 if test -n "$(git status --short)"
@@ -71,12 +71,12 @@ then
     if test "$?" != "0"
     then
         git reset
-        return $(err NO_COMMIT_MESSAGE)
+        exit $(err NO_COMMIT_MESSAGE)
     fi
 fi
 
 # TODO: check if error is merge or password
-git pull origin master || return $(err MERGE_CONFLICT)
+git pull origin master || exit $(err MERGE_CONFLICT)
 
 git fetch origin --tags
 
