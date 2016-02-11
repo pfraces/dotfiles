@@ -10,8 +10,8 @@ alias task='npm run --silent'
 
 # git
 
-alias g='save'
-alias g!='allow_master=true save'
+alias g='git-sync'
+alias g!='allow_master=true git-sync'
 
 alias gqb='git rev-parse --abbrev-ref HEAD 2>/dev/null'
 alias gqr='git rev-parse --show-toplevel'
