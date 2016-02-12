@@ -264,6 +264,9 @@ endfunction
 
 nnoremap <silent> <Leader><S-x> :call <sid>bufOnly()<CR>
 
+" auto-indent
+nnoremap <silent> <Leader><Tab> gg=G
+
 " open pane
 nnoremap <silent> <Leader><Space> :vsp<CR>
 
