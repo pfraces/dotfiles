@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# ultimate git script
+# ===================
+#
+# Usage
+# -----
+#
+#     save [tag]
+
+function err () {
+    code="ERR_$1"
+    msg="MSG_$code"
+
+    echo err: ${!msg} >&2
+    return ${!code}
+}
+
+ERR_NO_GIT_REPO=1
+ERR_NO_USER_NAME=2
+ERR_NO_USER_EMAIL=3
+ERR_EMPTY_REPO=4
+ERR_NO_ORIGIN=5
+ERR_MASTER_BRANCH=6
+ERR_NO_COMMIT_MESSAGE=7
+ERR_MERGE_CONFLICT=8
+
+MSG_ERR_NO_GIT_REPO='not a git repository'
+MSG_ERR_NO_USER_NAME='unable to commit without user name'
+MSG_ERR_NO_USER_EMAIL='unable to commit without user email'
+MSG_ERR_EMPTY_REPO='unable to commit to an empty repo'
+MSG_ERR_NO_ORIGIN='unable to commit to a repo without origin'
+MSG_ERR_MASTER_BRANCH='unable to commit to master branch'
+MSG_ERR_NO_COMMIT_MESSAGE='unable to commit with empty message'
+MSG_ERR_MERGE_CONFLICT='merge conflict'
+
+currentBranch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+root=$(git rev-parse --show-toplevel)
+
+newTag=$1
+
+if test -z "$currentBranch"
+then exit $(err NO_GIT_REPO)
+fi
+
+if test -z "$(git config user.name)"
+then exit $(err NO_USER_NAME)
+fi
+
+if test -z "$(git config user.email)"
+then exit $(err NO_USER_EMAIL)
+fi
+
+if test "$currentBranch" = 'HEAD'
+then exit $(err EMPTY_REPO)
+fi
+
+if test -z "$(git remote | grep origin)"
+then exit $(err NO_ORIGIN)
+fi
+
+if test "$currentBranch" = 'master' -a "$allow_master" != 'true'
+then exit $(err MASTER_BRANCH)
+fi
+
+if test -n "$(git status --short)"
+then
+    git add "$root" --all
+    git commit
+
+    if test "$?" != "0"
+    then
+        git reset
+        exit $(err NO_COMMIT_MESSAGE)
+    fi
+fi
+
+# TODO: check if error is merge or password
+git pull origin master || exit $(err MERGE_CONFLICT)
+
+git fetch origin --tags
+
+test -n "$newTag" && git tag $newTag
+git push origin $currentBranch
+git push origin --tags
