@@ -226,25 +226,6 @@ inoremap <silent> <C-s> <Esc>:w<CR>i
 nnoremap <silent> <C-t> :enew<CR>
 inoremap <silent> <C-t> <Esc>:enew<CR>
 
-" navigate between buffers
-nnoremap <silent> <C-Tab> :bnext<CR>
-inoremap <silent> <C-Tab> <Esc>:bnext<CR>
-
-nnoremap <silent> <C-S-Tab> :bprevious<CR>
-inoremap <silent> <C-S-Tab> <Esc>:bprevious<CR>
-
-" close current buffer
-nnoremap <silent> <C-w> :Bdelete<CR>
-
-" close all buffers except the current one
-function! s:bufOnly()
-  let l:currentBuffer = bufnr('%')
-  bufdo if bufnr('%') != l:currentBuffer | bd | endif
-endfunction
-
-nnoremap <silent> <C-S-w> :call <sid>bufOnly()<CR>
-inoremap <silent> <C-S-w> <Esc>:call <sid>bufOnly()<CR>i
-
 " close preview or current window
 function! s:isPreviewWindowOpened()
   for nr in range(1, winnr('$'))
@@ -268,6 +249,21 @@ inoremap <silent> <C-x> <Esc>:call <sid>closePreviewOrCurrentWindow()<CR>
 " ---------------------
 
 let mapleader=","
+
+" navigate between buffers
+nnoremap <silent> <Leader><Tab> :bnext<CR>
+nnoremap <silent> <Leader><S-Tab> :bprevious<CR>
+
+" close current buffer
+nnoremap <silent> <Leader>x :Bdelete<CR>
+
+" close all buffers except the current one
+function! s:bufOnly()
+  let l:currentBuffer = bufnr('%')
+  bufdo if bufnr('%') != l:currentBuffer | bd | endif
+endfunction
+
+nnoremap <silent> <Leader><S-x> :call <sid>bufOnly()<CR>
 
 " file fuzzy find
 nnoremap <silent> <Leader>f :Unite file_rec/async<CR>
