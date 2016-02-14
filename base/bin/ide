@@ -3,5 +3,5 @@
 tmux split-window -h
 
 for pane in `tmux list-panes -F '#P'`
-do tmux send-keys -t $pane 'tmux split-window -v -p 20 && vim .' C-m
+do tmux send-keys -t $pane ' tmux split-window -v -p 20 && vim' C-m
 done
