@@ -57,12 +57,17 @@ function ghco () {
     git clone https://pfraces@github.com/${account}/${repo}.git
 }
 
-# Github export
+# Add a github own remote as origin
 
-function ghe () {
+function ghro () {
     account=$1
     repo=$2
 
-    git clone --depth=1 https://github.com/${account}/${repo}.git
-    rm -rf ${repo}/.git
+    if test -z $repo
+    then
+      repo=$account
+      account=pfraces
+    fi
+
+    git remote add origin https://pfraces@github.com/${account}/${repo}.git
 }

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# TODO
+#
+# - configurable domain
+# - alternatively pass an url instead of account and repo
+#   - arguments management (dashed arguments)
+#   - get repo from url
+# - check arguments and show errors when needed
+
+account=$1
+repo=$2
+
+git clone --depth=1 https://github.com/${account}/${repo}.git
+rm -rf ${repo}/.git
