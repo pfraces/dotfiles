@@ -174,7 +174,7 @@ let s:darkgrey = 232
 
 " 80 characters overlength
 let s:overlength = 80
-let &colorcolumn = join(range(s:overlength + 1, s:overlength + 256), ',')
+let &colorcolumn = s:overlength + 1
 execute 'highlight ColorColumn ctermbg=' . s:darkgrey
 execute 'highlight NonText ctermbg=' . s:darkgrey
 
