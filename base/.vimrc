@@ -266,7 +266,7 @@ endfunction
 nnoremap <silent> <Leader><S-x> :call <sid>bufOnly()<CR>
 
 " file fuzzy find
-nnoremap <silent> <Leader>f :Unite file_rec/async<CR>
+nnoremap <silent> <Leader>f :Unite file_rec/async -force-redraw<CR>
 
 " toggle file explorer
 nnoremap <silent> <Leader>e :VimFilerExplorer -force-hide<CR>
