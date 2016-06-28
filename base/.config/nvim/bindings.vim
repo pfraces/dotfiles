@@ -27,8 +27,8 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-nnoremap <silent> <A-x> :call <sid>closePreviewOrCurrentWindow()<CR>
-inoremap <silent> <A-x> <Esc>:call <sid>closePreviewOrCurrentWindow()<CR>
+nnoremap <silent> <A-x> :call ClosePreviewOrCurrentWindow()<CR>
+inoremap <silent> <A-x> <Esc>:call ClosePreviewOrCurrentWindow()<CR>
 
 " -----------------
 " <leader> mappings
@@ -37,20 +37,9 @@ inoremap <silent> <A-x> <Esc>:call <sid>closePreviewOrCurrentWindow()<CR>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>r :so $MYVIMRC<CR>
 
-" -------
-" helpers
-" -------
-
-function! s:isPreviewWindowOpened()
-  for nr in range(1, winnr('$'))
-    if getwinvar(nr, "&previewwindow") | return 1 | endif
-  endfor
-
-  return 0
-endfunction
-
-function! s:closePreviewOrCurrentWindow()
-  if s:isPreviewWindowOpened() | pclose
-  else | close
-  endif
-endfunction
+" neomake
+nmap <leader>lo :lopen<CR>      " open location window
+nmap <leader>lc :lclose<CR>     " close location window
+nmap <leader>ll :ll<CR>         " go to current error/warning
+nmap <leader>ln :lnext<CR>      " next error/warning
+nmap <leader>lp :lprev<CR>      " previous error/warning
