@@ -2,44 +2,46 @@
 nnoremap Q @q 
 
 " tab indentation
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <lt>gv
-nnoremap <Tab> >>
-nnoremap <S-Tab> <lt><lt>
+vnoremap <tab> >gv
+vnoremap <s-tab> <lt>gv
+nnoremap <tab> >>
+nnoremap <s-tab> <lt><lt>
 
 " clear search with [ESC]
-nnoremap <silent> <Esc> :noh<CR>
+nnoremap <silent> <esc> :noh<cr>
 
 " enter NORMAL mode in term
-tnoremap <Esc> <C-\><C-n>
+tnoremap <esc> <c-\><c-n>
+
+" exit term and close its window 
+tnoremap <silent> <c-d> <c-d><c-\><c-n>:q<cr>
 
 " --------------
 " [alt] mappings
 " --------------
 
-" move between windows <https://neovim.io/doc/user/nvim_terminal_emulator.html>
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+" move between windows
+tnoremap <a-h> <c-\><c-n><c-w>h
+tnoremap <a-j> <c-\><c-n><c-w>j
+tnoremap <a-k> <c-\><c-n><c-w>k
+tnoremap <a-l> <c-\><c-n><c-w>l
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
 
-nnoremap <silent> <A-x> :call ClosePreviewOrCurrentWindow()<CR>
-inoremap <silent> <A-x> <Esc>:call ClosePreviewOrCurrentWindow()<CR>
+nnoremap <silent> <a-x> :call ClosePreviewOrCurrentWindow()<cr>
+inoremap <silent> <a-x> <esc>:call ClosePreviewOrCurrentWindow()<cr>
 
 " -----------------
 " <leader> mappings
 " -----------------
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>r :so $MYVIMRC<CR>
+nnoremap <silent> <leader>r :so $MYVIMRC<cr>
 
-" neomake
-nmap <leader>lo :lopen<CR>      " open location window
-nmap <leader>lc :lclose<CR>     " close location window
-nmap <leader>ll :ll<CR>         " go to current error/warning
-nmap <leader>ln :lnext<CR>      " next error/warning
-nmap <leader>lp :lprev<CR>      " previous error/warning
+" window splits
+nnoremap <silent> <leader>h :Vex<cr>
+nnoremap <silent> <leader>j :below 10sp term://$SHELL<cr>i
+nnoremap <silent> <leader>k :Ex<cr>
+nnoremap <silent> <leader>l :Vex!<cr>

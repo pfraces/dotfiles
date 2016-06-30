@@ -1,15 +1,13 @@
-" ----------
-" extensions
-" ----------
+" --------
+" built-in
+" --------
 
-Plug 'tpope/vim-vinegar' " improved netrw
-let g:netrw_dirhistmax = 0 " disable .netrwhist file creation
-
-Plug 'hkupty/nvimux' " tmux replacement
-Plug 'tpope/vim-commentary' " comment/uncomment code
-Plug 'SirVer/ultisnips' " code snippets
-
-Plug 'editorconfig/editorconfig-vim' " editorconfig integration
+" netrw
+let g:netrw_dirhistmax = 0         " disable .netrwhist file creation
+let g:netrw_liststyle = 0          " thin (change to 3 for tree)
+let g:netrw_banner = 0             " no banner
+let g:netrw_hide = 1               " enable file ignore patterns
+let g:netrw_list_hide = '.*\.swp$' " file ignore patterns
 
 " ----- 
 " theme
@@ -22,9 +20,17 @@ let g:airline#extensions#tabline#enabled = 1 " enable top tabline
 let g:airline#extensions#tabline#fnamemod = ':t' " show only filename in tabline
 
 " hide separators
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_section_z=''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_section_z = ''
+
+" -----------
+" development
+" -----------
+
+Plug 'tpope/vim-commentary' " comment/uncomment code
+Plug 'SirVer/ultisnips' " code snippets
+Plug 'editorconfig/editorconfig-vim' " editorconfig integration
 
 " ----------
 " javascript
@@ -36,7 +42,6 @@ Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 
 " linter
 Plug 'neomake/neomake'
-autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
 
 " autocompletion

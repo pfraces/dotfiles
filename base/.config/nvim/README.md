@@ -8,19 +8,27 @@ TODO
 
   * replace [bloq mays] with [esc]
   * restore cursor position
-
-### Plugin config
-
-  * nvimux: ctrl-a
-  * tern: smart autocompletion
+  * <nop> delete, backspace, arrows in insert mode
+  * create a keymapping for PlugUpdate + UpdateRemotePlugins
+  * restore file position
+  * tab-related keybindings
 
 ### Plugins
 
   * neovim-remote: installation without pip
+  * node-host
   * fzf+unite
   * fugitive+gitgutter
   * ag
   * typescript
+
+### incrementally replace term usage with vim plugins
+
+  * tpope's vim-fugitive
+  * tpope's vim-eunuch
+  * bind npm scripts (vim-node?)
+  * :Ag
+  * :Unite / vim-fzf
 
 References
 ----------
@@ -38,4 +46,3 @@ References
 
   * <https://github.com/vimlab/neojs>
   * <https://davidosomething.com/blog/vim-for-javascript/>
-  * <https://www.gregjs.com/vim/2015/lint-as-you-type-with-neovim-and-neomake/>
