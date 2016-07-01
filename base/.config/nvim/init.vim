@@ -43,11 +43,13 @@ set title                 " change the terminal's titleo
 set showcmd               " show typed keys
 
 " indentation
-set autoindent
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
-set tabstop=2
-set shiftwidth=2
+set autoindent
+set smartindent
 
 " search
 set ignorecase
@@ -65,3 +67,6 @@ set noswapfile
 " peristent undos
 set undodir=~/.config/nvim/undodir
 set undofile
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start

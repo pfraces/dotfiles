@@ -27,15 +27,12 @@ inoremap <expr><tab> pumvisible() ? '\<c-n>' : '\<tab>'
 " --------------
 
 " move between windows
-tnoremap <a-h> <c-\><c-n><c-w>h
-tnoremap <a-j> <c-\><c-n><c-w>j
-tnoremap <a-k> <c-\><c-n><c-w>k
-tnoremap <a-l> <c-\><c-n><c-w>l
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
 nnoremap <a-l> <c-w>l
 
+" close windows
 nnoremap <silent> <a-x> :call nvide#closeWindow()<cr>
 inoremap <silent> <a-x> <esc>:call nvide#closeWindow()<cr>
 
@@ -49,9 +46,29 @@ nnoremap <silent> <leader>r :source $MYVIMRC<cr>
 " update plugins
 nnoremap <silent> <leader>u :call nvide#update()<cr>
 
-" open netrw in new vertical pane
+" term
+nnoremap <silent> <leader>sh :below 10sp term://$SHELL<cr>i
+
+" netrw
 nnoremap <silent> <leader>h :Vex<cr>
 nnoremap <silent> <leader>l :Vex!<cr>
+nnoremap <silent> <leader>- :Texplore<cr>
 
-" open term in new bottom pane
-nnoremap <silent> <leader>t :below 10sp term://$SHELL<cr>i
+" unite
+nnoremap <silent> <leader>f :Unite file_rec/neovim<cr>
+
+
+" move between tabs
+nnoremap <silent> <leader><tab> :tabnext<cr>
+nnoremap <silent> <leader><s-tab> :tabprevious<cr>
+
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 10gt

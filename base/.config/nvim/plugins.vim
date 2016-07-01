@@ -12,6 +12,16 @@ let g:netrw_list_hide = '.*\.swp$' " file ignore patterns
 " vim-plug
 let g:plug_window = '' " show progress in current window
 
+" ------------
+" fuzzy finder
+" ------------
+
+Plug 'Shougo/unite.vim'
+
+if executable('ag')
+  let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --hidden -g ""'
+endif
+
 " -----
 " theme
 " -----
