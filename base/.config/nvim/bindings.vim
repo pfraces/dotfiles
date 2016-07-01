@@ -8,13 +8,19 @@ nnoremap <tab> >>
 nnoremap <s-tab> <lt><lt>
 
 " clear search with [ESC]
-nnoremap <silent> <esc> :noh<cr>
+nnoremap <silent> <esc> :nohlsearch<cr>
+
+" open netrc with [-]
+nnoremap <silent> - :Explore<cr>
 
 " enter NORMAL mode in term
 tnoremap <esc> <c-\><c-n>
 
 " exit term and close its window 
 tnoremap <silent> <c-d> <c-d><c-\><c-n>:q<cr>
+
+" tab completion
+inoremap <expr><tab> pumvisible() ? '\<c-n>' : '\<tab>'
 
 " --------------
 " [alt] mappings
@@ -30,18 +36,22 @@ nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
 nnoremap <a-l> <c-w>l
 
-nnoremap <silent> <a-x> :call ClosePreviewOrCurrentWindow()<cr>
-inoremap <silent> <a-x> <esc>:call ClosePreviewOrCurrentWindow()<cr>
+nnoremap <silent> <a-x> :call nvide#closeWindow()<cr>
+inoremap <silent> <a-x> <esc>:call nvide#closeWindow()<cr>
 
 " -----------------
 " <leader> mappings
 " -----------------
 
-" Quickly edit/reload the vimrc file
-nnoremap <silent> <leader>r :so $MYVIMRC<cr>
+" reload configuration
+nnoremap <silent> <leader>r :source $MYVIMRC<cr>
 
-" window splits
+" update plugins
+nnoremap <silent> <leader>u :call nvide#update()<cr>
+
+" open netrw in new vertical pane
 nnoremap <silent> <leader>h :Vex<cr>
-nnoremap <silent> <leader>j :below 10sp term://$SHELL<cr>i
-nnoremap <silent> <leader>k :Ex<cr>
 nnoremap <silent> <leader>l :Vex!<cr>
+
+" open term in new bottom pane
+nnoremap <silent> <leader>t :below 10sp term://$SHELL<cr>i

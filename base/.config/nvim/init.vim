@@ -2,29 +2,25 @@
 " load helper functions
 " ---------------------
 
-source ~/.config/nvim/helpers.vim
+source ~/.config/nvim/nvide.vim
 
 " ------------
 " load plugins
 " ------------
 
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
-endif
+call nvide#checkDependencies()
 
 call plug#begin('~/.config/nvim/plugged')
 source ~/.config/nvim/plugins.vim
 call plug#end()
 
-color jellybeans " load theme
+silent! colorscheme jellybeans " load theme
 
 " -----------------
 " load key bindings
 " -----------------
 
-let mapleader = "\<Space>" " map <leader> to [space]
+let mapleader = " "
 source ~/.config/nvim/bindings.vim
 
 " -----------------
@@ -37,13 +33,14 @@ source ~/.config/nvim/autocommands.vim
 " base setup
 " ----------
 
-set number            " show line numbers
-set cursorline        " highlight current line
-set nowrap            " do not wrap long lines
-set clipboard=unnamed " use X clipboard
-set hidden            " unsaved buffers can be hidden
-set title             " change the terminal's titleo
-set showcmd           " show typed keys
+set number                " show line numbers
+set ruler                 " show current position
+set cursorline            " highlight current line
+set nowrap                " do not wrap long lines
+set clipboard=unnamedplus " use X clipboard
+set hidden                " unsaved buffers can be hidden
+set title                 " change the terminal's titleo
+set showcmd               " show typed keys
 
 " indentation
 set autoindent

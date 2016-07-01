@@ -1,6 +1,6 @@
-" --------
-" built-in
-" --------
+" ---------
+" unplugged
+" ---------
 
 " netrw
 let g:netrw_dirhistmax = 0         " disable .netrwhist file creation
@@ -9,9 +9,12 @@ let g:netrw_banner = 0             " no banner
 let g:netrw_hide = 1               " enable file ignore patterns
 let g:netrw_list_hide = '.*\.swp$' " file ignore patterns
 
-" ----- 
+" vim-plug
+let g:plug_window = '' " show progress in current window
+
+" -----
 " theme
-" ----- 
+" -----
 
 Plug 'nanotech/jellybeans.vim' " color scheme
 
@@ -28,9 +31,13 @@ let g:airline_section_z = ''
 " development
 " -----------
 
-Plug 'tpope/vim-commentary' " comment/uncomment code
-Plug 'SirVer/ultisnips' " code snippets
 Plug 'editorconfig/editorconfig-vim' " editorconfig integration
+Plug 'tpope/vim-commentary' " comment/uncomment code
+
+Plug 'SirVer/ultisnips' " code snippets
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " ----------
 " javascript
@@ -45,6 +52,7 @@ Plug 'neomake/neomake'
 let g:neomake_javascript_enabled_makers = ['eslint']
 
 " autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': function('RemotePlugin') }
-Plug 'carlitux/deoplete-ternjs'
+Plug 'Shougo/deoplete.nvim' | Plug 'carlitux/deoplete-ternjs'
 let g:deoplete#enable_at_startup = 1
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent', '--no-port-file']

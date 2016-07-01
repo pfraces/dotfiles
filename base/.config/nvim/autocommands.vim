@@ -1,2 +1,4 @@
-autocmd! VimEnter * if !argc() | Explore | endif
-autocmd! BufWritePost,BufEnter * Neomake
+augroup lint
+  autocmd!
+  autocmd BufWritePost,BufEnter *.js Neomake
+augroup END
