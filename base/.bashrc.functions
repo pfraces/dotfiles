@@ -5,12 +5,6 @@ function mcd () {
     cd "$1"
 }
 
-function open () {
-    while test $# -gt 0
-    do xdg-open "$1" && shift
-    done
-}
-
 function xapp () {
     winid=$(xprop | awk '/_NET_WM_PID\(CARDINAL\)/{ print $NF }')
     ps -e | grep $winid | awk '{ print $NF }'

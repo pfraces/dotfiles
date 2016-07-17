@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while test $# -gt 0
+do xdg-open "$1" && shift
+done
