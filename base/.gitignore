@@ -8,5 +8,5 @@
 # gedit temporary files
 *~
 
-# logs
-*.log
+# ternjs server port
+.tern-port
