@@ -1,15 +1,23 @@
 [user]
-	email = pfraces@gmail.com
-	name = Pau Fracés
+    email = pfraces@gmail.com
+    name = Pau Fracés
+
 [url "https://"]
-	insteadOf = git://
+    insteadOf = git://
+
 [core]
-	excludesfile = ~/.gitignore
-	editor = vim
-  pager = less -SFRX
+    excludesfile = ~/.gitignore
+    editor = vim
+    pager = less -SFRX
+
 [pager]
-  status = true
+    status = true
+
 [credential]
-	helper = cache --timeout=3600
+    helper = cache --timeout=3600
+
+[diff]
+    tool = meld
+
 [merge]
-  tool = meld
+    tool = meld
